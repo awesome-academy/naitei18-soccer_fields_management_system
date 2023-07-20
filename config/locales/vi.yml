@@ -1,0 +1,14 @@
+vi:
+  header:
+    title: ""
+    home: "Trang chủ"
+    help: "Trợ giúp"
+    log_in: "Đăng nhập"
+    english: "Tiếng Anh"
+    vietnamese: "Tiếng Việt"
+  footer:
+    about: "Về chúng tôi"
+    contact: "Liên hệ"
+    description: "Ứng dụng Soccer Fields Management"
+  home:
+    description: "Chào mừng đến với ứng dụng Soccer Fields Management"

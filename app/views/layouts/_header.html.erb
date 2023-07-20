@@ -1,0 +1,14 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "Soccer Fields Management", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to t("header.home"), root_path %></li>
+        <li><%= link_to t("header.help"), help_path %></li>
+        <li><%= link_to t("header.log_in"), "#" %></li>
+        <li><%= link_to t("header.english"), request.params.merge( locale: "en" ) %></li>
+        <li><%= link_to t("header.vietnamese"), request.params.merge( locale: "vi" ) %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
