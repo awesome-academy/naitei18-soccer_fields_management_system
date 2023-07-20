@@ -30,4 +30,16 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  header:
+    title: ""
+    home: "Home"
+    help: "Help"
+    log_in: "Log in"
+    english: "English"
+    vietnamese: "Vietnamese"
+  footer:
+    about: "About"
+    contact: "Contact"
+    description: "Soccer Fields Management App"
+  home:
+    description: "Welcome to the Soccer Fields Management App"

@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.0.2"
 
 gem "rails", "~> 6.1.7", ">= 6.1.7.4"
+gem "bootstrap-sass", "3.4.1"
 gem "mysql2", "~> 0.5"
 gem "puma", "~> 5.0"
 gem "sass-rails", ">= 6"
@@ -11,6 +12,8 @@ gem "webpacker", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
 gem "figaro"
+gem "rails-i18n"
+gem "config"
 gem "bootsnap", ">= 1.4.4", require: false
 
 group :development, :test do
