@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2023_07_19_082053) do
     t.datetime "reset_send_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "bookings", "football_pitches"

@@ -14,6 +14,8 @@ gem "jbuilder", "~> 2.7"
 gem "figaro"
 gem "rails-i18n"
 gem "config"
+gem "bcrypt", "3.1.13"
+gem "faker", ">= 3.2.0"
 gem "bootsnap", ">= 1.4.4", require: false
 
 group :development, :test do
