@@ -6,8 +6,8 @@
         <li><%= link_to t("header.home"), root_path %></li>
         <li><%= link_to t("header.help"), help_path %></li>
         <li><%= link_to t("header.log_in"), "#" %></li>
-        <li><%= link_to t("header.english"), request.params.merge( locale: "en" ) %></li>
-        <li><%= link_to t("header.vietnamese"), request.params.merge( locale: "vi" ) %></li>
+        <li><%= link_to t("header.english"), request.params.merge( locale: :en ) %></li>
+        <li><%= link_to t("header.vietnamese"), request.params.merge( locale: :vi ) %></li>
       </ul>
     </nav>
   </div>
