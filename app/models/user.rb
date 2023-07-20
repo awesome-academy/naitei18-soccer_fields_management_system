@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  enum role: [:user, :admin]
+  enum role: {user: 0, admin: 1}
   has_many :bookings, dependent: :destroy
   has_many :football_pitches, through: :bookings
 

@@ -1,39 +1,18 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
+  activerecord:
+    models:
+      user: "User"
+    attributes:
+      user:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
   header:
     title: ""
     home: "Home"
     help: "Help"
+    sign_up: "Sign up"
     log_in: "Log in"
     english: "English"
     vietnamese: "Vietnamese"
@@ -43,3 +22,17 @@ en:
     description: "Soccer Fields Management App"
   home:
     description: "Welcome to the Soccer Fields Management App"
+  sign_up:
+    create_my_account: "Create account"
+    title: "Sign up"
+    the_form_contains: "The form contains"
+    error: "error"
+    welcome: "Welcome to the Sample App!"
+    mail_check: "Please check your email to activate your account."
+    the_form_contains: "The form contains"
+    password_validation: " Password must be at least 8 characters at least 1 uppercase alphabet,
+     1 lowercase alphabet, 1 number and 1 special character"
+  flash:
+    sign_up_failed: "Sign up failed!"
+    user_not_found: "User not found!"
+    welcome_to_app: "Welcome to the Soccer Fields Management App!"
