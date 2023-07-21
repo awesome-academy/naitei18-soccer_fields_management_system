@@ -38,6 +38,7 @@ vi:
     title: "Đăng nhập"
     new_user?: "Chưa có tài khoản?"
     sign_up_now: "Đăng ký ngay"
+    remember_me: "Ghi nhớ tài khoản trên máy tính này"
   flash:
     sign_up_failed: "Đăng ký thất bại!"
     user_not_found: "Không tìm thấy người dùng!"

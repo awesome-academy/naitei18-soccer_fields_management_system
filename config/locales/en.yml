@@ -39,6 +39,7 @@ en:
     title: "Log in"
     new_user?: "Don't have an account?"
     sign_up_now: "Sign up now"
+    remember_me: "Remember me on this computer"
   flash:
     sign_up_failed: "Sign up failed!"
     user_not_found: "User not found!"
