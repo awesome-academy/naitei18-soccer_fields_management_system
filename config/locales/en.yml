@@ -9,11 +9,14 @@ en:
         password: "Password"
         password_confirmation: "Password confirmation"
   header:
-    title: ""
     home: "Home"
     help: "Help"
     sign_up: "Sign up"
     log_in: "Log in"
+    account: "Account"
+    profile: "Profile"
+    settings: "Settings"
+    logout: "Logout"
     english: "English"
     vietnamese: "Vietnamese"
   footer:
@@ -32,7 +35,12 @@ en:
     the_form_contains: "The form contains"
     password_validation: " Password must be at least 8 characters at least 1 uppercase alphabet,
      1 lowercase alphabet, 1 number and 1 special character"
+  login:
+    title: "Log in"
+    new_user?: "Don't have an account?"
+    sign_up_now: "Sign up now"
   flash:
     sign_up_failed: "Sign up failed!"
     user_not_found: "User not found!"
     welcome_to_app: "Welcome to the Soccer Fields Management App!"
+    invalid_email_password_combination: "Invalid email or password!"
