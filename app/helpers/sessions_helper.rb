@@ -41,4 +41,13 @@ module SessionsHelper
   def handle_remember user
     params[:session][:remember_me] == "1" ? remember(user) : forget(user)
   end
+
+  def redirect_back_or default_route
+    redirect_to session[:forwarding_url] || default_route
+    session.delete :forwarding_url
+  end
+
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
 end

@@ -41,6 +41,7 @@ en:
     new_user?: "Don't have an account?"
     sign_up_now: "Sign up now"
     remember_me: "Remember me on this computer"
+    forgot_password: "Forgot password"
   flash:
     sign_up_failed: "Sign up failed!"
     user_not_found: "User not found!"
@@ -50,8 +51,22 @@ en:
     not_activated: "Account not activated. Check your email for the activation link."
     mail_activated_success: "Account activated successfully!"
     mail_activated_fail: "Account activation failed: Invalid link!"
+    email_not_found: "Email address not found"
+    sent_reset_password_email: "Email sent with password reset instructions"
+    reset_password_success: "Reset Password success"
+    user_in_actived: "User is in_actived!"
+    reset_password_expired: "Password reset has expired."
   mail:
     account_activation: "Account activation"
     hi_message_html: "Hi, %{name}"
     welcome_sentence: "Welcome to the Sample App! Click on the link below to activate your account:"
     activate: "Activate"
+  reset_password:
+    title: "Password reset"
+    click_link: "To reset your password click the link below:"
+    reset_password: "Reset password"
+    expire: "This link will expire in two hours."
+    not_request: "If you did not request your password to be reset, please ignore this email and your password will stayas it is."
+  forgot_password:
+    title: "Forgot Password"
+    submit: "Submit"
