@@ -9,10 +9,13 @@ vi:
         password: "Mật khẩu"
         confirmation: "Nhập lại mật khẩu"
   header:
-    title: ""
     home: "Trang chủ"
     help: "Trợ giúp"
     sign_up: "Đăng ký"
+    account: "Tài khoản"
+    profile: "Hồ sơ"
+    settings: "Cài đặt"
+    logout: "Đăng xuất"
     log_in: "Đăng nhập"
     english: "Tiếng Anh"
     vietnamese: "Tiếng Việt"
@@ -31,7 +34,12 @@ vi:
     mail_check: "Hãy kiểm tra email để kích hoạt tài khoản của bạn."
     password_validation: "Mật khẩu phải bao gồm ít nhất 8 ký tự, 1 chữ cái hoa, 1 chữ cái thường
     1 chữ số, 1 ký tự đặc biệt"
+  login:
+    title: "Đăng nhập"
+    new_user?: "Chưa có tài khoản?"
+    sign_up_now: "Đăng ký ngay"
   flash:
     sign_up_failed: "Đăng ký thất bại!"
     user_not_found: "Không tìm thấy người dùng!"
     welcome_to_app: "Chào mừng đến với ứng dụng Soccer Fields Management!"
+    invalid_email_password_combination: "Sai email hoặc mật khẩu!"
