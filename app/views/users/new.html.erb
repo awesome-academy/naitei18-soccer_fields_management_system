@@ -1,0 +1,24 @@
+<% provide :title, t("sign_up.title") %>
+<h1><%= t "sign_up.title" %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  <%= form_for @user, url: signup_path do |f| %>
+    <%= render "shared/error_messages" %>
+
+    <%= f.label :name, User.human_attribute_name("name") %>
+    <%= f.text_field :name, class: "form-control" %>
+
+    <%= f.label :email, User.human_attribute_name("email") %>
+    <%= f.email_field :email, class: "form-control" %>
+
+    <%= f.label :password, User.human_attribute_name("password") %>
+    (<%= t "sign_up.password_validation" %>)
+    <%= f.password_field :password, class: "form-control" %>
+
+    <%= f.label :password_confirmation, User.human_attribute_name("confirmation") %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+
+    <%= f.submit t("sign_up.create_my_account"), class: "btn btn-primary" %>
+  <% end %>
+  </div>
+</div>
