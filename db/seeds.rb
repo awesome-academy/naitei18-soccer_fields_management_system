@@ -4,7 +4,9 @@ User.create!(
   email: "example@railstutorial.org",
   role: 1,
   password: "Nguyenthaingoc1!",
-  password_confirmation: "Nguyenthaingoc1!"
+  password_confirmation: "Nguyenthaingoc1!",
+  activated: true,
+  activated_at: Time.zone.now
 )
 
 

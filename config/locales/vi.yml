@@ -40,6 +40,7 @@ vi:
     new_user?: "Chưa có tài khoản?"
     sign_up_now: "Đăng ký ngay"
     remember_me: "Ghi nhớ tài khoản trên máy tính này"
+    forgot_password: "Quên mật khẩu"
   flash:
     sign_up_failed: "Đăng ký thất bại!"
     user_not_found: "Không tìm thấy người dùng!"
@@ -48,9 +49,22 @@ vi:
     mail_check: "Hãy kiểm tra email để kích hoạt tài khoản của bạn."
     not_activated: "Tài khoản chưa được kích hoạt. Kiểm tra email để lấy link kích hoạt."
     activated: "Kích hoạt tài khoản thành công!"
-    invalid: "Kích hoạt tài khoản thất bại: Link invalid!"
+    invalid: "Kích hoạt tài khoản thất bại: đường dẫn không đúng!"
+    sent_reset_password_email: "Đã gửi eamil kèm hướng dẫn đổi mật khẩu"
+    reset_password_success: "Đổi mật khẩu thành công"
+    user_in_actived: "Người dùng không được kích hoạt!"
+    reset_password_expired: "Đặt lại mật khẩu đã hết hạn"
   mail:
     account_activation: "Kích hoạt tài khoản"
     hi_message_html: "Xin chào, %{name}"
     welcome_sentence: "Chào mừng đến với Sample App! Click vào link bên dưới để kích hoạt tài khoản:"
     activate: "Kích hoạt"
+  reset_password:
+    title: "Đặt lại mật khẩu"
+    click_link: "Để thay đổi mật khẩu hãy nhấn vào đường dẫn phía dưới:"
+    reset_password: "Thay đổi mật khẩu"
+    expire: "Đường dẫn có thời hạn trong 2 giờ"
+    not_request: "Nếu bạn không yêu cầu đặt lại mật khẩu của mình, vui lòng bỏ qua email này và mật khẩu của bạn sẽ giữ nguyên như cũ."
+  forgot_password:
+    title: "Quên mật khẩu"
+    submit: "Xác nhận"
