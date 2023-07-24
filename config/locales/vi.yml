@@ -1,4 +1,5 @@
 vi:
+  app_name: "Ứng dụng Soccer Fields Management"
   activerecord:
     models:
       user: "Người dùng"
@@ -44,3 +45,12 @@ vi:
     user_not_found: "Không tìm thấy người dùng!"
     welcome_to_app: "Chào mừng đến với ứng dụng Soccer Fields Management!"
     invalid_email_password_combination: "Sai email hoặc mật khẩu!"
+    mail_check: "Hãy kiểm tra email để kích hoạt tài khoản của bạn."
+    not_activated: "Tài khoản chưa được kích hoạt. Kiểm tra email để lấy link kích hoạt."
+    activated: "Kích hoạt tài khoản thành công!"
+    invalid: "Kích hoạt tài khoản thất bại: Link invalid!"
+  mail:
+    account_activation: "Kích hoạt tài khoản"
+    hi_message_html: "Xin chào, %{name}"
+    welcome_sentence: "Chào mừng đến với Sample App! Click vào link bên dưới để kích hoạt tài khoản:"
+    activate: "Kích hoạt"

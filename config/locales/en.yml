@@ -1,4 +1,5 @@
 en:
+  app_name: "Soccer Fields Management App"
   activerecord:
     models:
       user: "User"
@@ -45,3 +46,12 @@ en:
     user_not_found: "User not found!"
     welcome_to_app: "Welcome to the Soccer Fields Management App!"
     invalid_email_password_combination: "Invalid email or password!"
+    mail_check: "Please check your email to activate your account."
+    not_activated: "Account not activated. Check your email for the activation link."
+    mail_activated_success: "Account activated successfully!"
+    mail_activated_fail: "Account activation failed: Invalid link!"
+  mail:
+    account_activation: "Account activation"
+    hi_message_html: "Hi, %{name}"
+    welcome_sentence: "Welcome to the Sample App! Click on the link below to activate your account:"
+    activate: "Activate"
