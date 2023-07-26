@@ -1,0 +1,63 @@
+<% provide :title, t("football_pitch.create_football_pitch") %>
+<h1><%= t "football_pitch.create_football_pitch" %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3" id="abc_form">
+  <%= form_for @football_pitch do |f| %>
+
+    <%= f.label :name, FootballPitch.human_attribute_name("name") %>
+    <%= f.text_field :name, class: "form-control" %>
+
+    <%= f.label :location, FootballPitch.human_attribute_name("location") %>
+    <%= f.text_field :location, class: "form-control" %>
+
+    <%= f.label :price_per_hour, FootballPitch.human_attribute_name("price_per_hour") %>
+    <%= f.number_field :price_per_hour %>
+
+    <%= f.label :images, FootballPitch.human_attribute_name("picture") %>
+    <%= f.file_field :images, multiple: true %>
+
+    <%= f.label :football_pitch_type_id, FootballPitchType.model_name.human %>
+    <button type="button" class="btn" data-toggle="modal" data-target="#createFootballPitchTypeModal">
+      <span class="glyphicon glyphicon-plus"></span>
+    </button>
+
+    <%= f.collection_select :football_pitch_type_id, FootballPitchType.order(:name), :id, :name, prompt: true %>
+
+    <%= f.submit t("form.submit"), class: "btn btn-primary" %>
+  <% end %>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="createFootballPitchTypeModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= t "football_pitch_type.create_football_pitch_type" %></h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@football_pitch_type, remote: true) do |f| %>
+
+          <%= f.label :name, FootballPitchType.human_attribute_name("name") %>
+          <%= f.text_field :name, class: "form-control" %>
+
+          <%= f.label :length, FootballPitchType.human_attribute_name("length") %>
+          <%= f.number_field :length %>
+
+          <%= f.label :width, FootballPitchType.human_attribute_name("width") %>
+          <%= f.number_field :width %>
+
+
+          <%= f.submit t("form.submit"), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t "modal.close" %></button>
+      </div>
+    </div>
+
+  </div>
+</div>

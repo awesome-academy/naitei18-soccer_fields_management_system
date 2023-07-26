@@ -1,7 +1,7 @@
 # Create a main sample user.
 User.create!(
   name: "Example User",
-  email: "example@railstutorial.org",
+  email: "example@gmail.com",
   role: 1,
   password: "Nguyenthaingoc1!",
   password_confirmation: "Nguyenthaingoc1!",
@@ -13,7 +13,7 @@ User.create!(
 # Generate a bunch of additional users.
 30.times do |n|
   name = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
+  email = "example-#{n+1}@gamil.com"
   password = "Nguyenthaingoc1!"
   User.create!(
     name: name,
@@ -23,5 +23,16 @@ User.create!(
     password_confirmation: password,
     activated: true,
     activated_at: Time.zone.now
+  )
+end
+
+5.times do |n|
+  name = "Sân bóng loại #{n}"
+  length = n * 15
+  width = n * 10
+  FootballPitchType.create!(
+    name: name,
+    length: length,
+    width: width
   )
 end
