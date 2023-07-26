@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
   include SessionsHelper
   around_action :switch_locale
   rescue_from CanCan::AccessDenied, with: :cancan_access_denied
+  before_action do
+    @pagy_locale = params[:locale]
+  end
 
   private
 

@@ -22,7 +22,6 @@ en:
         width: "Width"
   header:
     home: "Home"
-    help: "Help"
     sign_up: "Sign up"
     log_in: "Log in"
     account: "Account"
@@ -34,6 +33,7 @@ en:
   footer:
     about: "About"
     contact: "Contact"
+    help: "Help"
     description: "Soccer Fields Management App"
   home:
     description: "Welcome to the Soccer Fields Management App"
@@ -92,5 +92,7 @@ en:
     title: "Forgot Password"
   football_pitch:
     create_football_pitch: "Create football pitch"
+    info_football_pitch: "Information of football pitch"
   football_pitch_type:
     create_football_pitch_type: "Create football pitch type"
+    info_football_pitch_type: "Information of football pitch type"

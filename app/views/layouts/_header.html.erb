@@ -4,8 +4,8 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("header.home"), root_path %></li>
-        <li><%= link_to t("header.help"), help_path %></li>
         <% if logged_in? %>
+          <li><%= link_to FootballPitch.model_name.human, football_pitches_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= t "header.account" %> <b class="caret"></b>
