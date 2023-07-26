@@ -36,3 +36,20 @@ end
     width: width
   )
 end
+
+30.times do |n|
+  name = "Sân bóng số #{n}"
+  location = "Địa chỉ của sân bóng số #{n}"
+  price_per_hour = 100000
+  football_pitch_type_id = (n % 5) + 1
+  @football_pitch = FootballPitch.create(
+    name: name,
+    location: location,
+    price_per_hour: price_per_hour,
+    football_pitch_type_id: football_pitch_type_id
+  )
+  @football_pitch.images.attach(io: File.open("/home/ngocnguyen/Desktop/images/image_1.jpg"), filename: "images_1.jpg", content_type: "image/jpeg")
+  @football_pitch.images.attach(io: File.open("/home/ngocnguyen/Desktop/images/image_2.jpeg"), filename: "images_2.jpeg", content_type: "image/jpeg")
+  @football_pitch.images.attach(io: File.open("/home/ngocnguyen/Desktop/images/image_3.jpg"), filename: "images_3.jpg", content_type: "image/jpeg")
+  @football_pitch.save
+end

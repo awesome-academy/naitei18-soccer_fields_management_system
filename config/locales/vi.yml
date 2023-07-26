@@ -22,7 +22,6 @@ vi:
         width: "Chiều rộng"
   header:
     home: "Trang chủ"
-    help: "Trợ giúp"
     sign_up: "Đăng ký"
     account: "Tài khoản"
     profile: "Hồ sơ"
@@ -34,6 +33,7 @@ vi:
   footer:
     about: "Về chúng tôi"
     contact: "Liên hệ"
+    help: "Trợ giúp"
     description: "Ứng dụng Soccer Fields Management"
   home:
     description: "Chào mừng đến với ứng dụng Soccer Fields Management"
@@ -90,5 +90,8 @@ vi:
     title: "Quên mật khẩu"
   football_pitch:
     create_football_pitch: "Tạo sân bóng đá mới"
+    info_football_pitch: "Thông tin về sân bóng"
+    football_pitch_all: "Tất cả sân bóng đá"
   football_pitch_type:
     create_football_pitch_type: "Tạo loại sân bóng đá mới"
+    info_football_pitch_type: "Thông tin về loại sân bóng"

@@ -1,0 +1,54 @@
+<% provide(:title, @football_pitch.name) %>
+<div class="container">
+  <h1><%= @football_pitch.name %></h1>
+  <div class="col-md-4">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <% @football_pitch.images.length.times do |n| %>
+          <li data-target="#myCarousel" data-slide-to="<%= n %>" class="<%= (n == 0) ? "active" : ""%>"></li>
+        <% end %>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <% @football_pitch.images.length.times do |i| %>
+          <div class="<%= (i == 0) ? "item active" : "item"%>">
+            <%= image_tag @football_pitch.display_image(i, [Settings.digit.size_500, Settings.digit.size_500]) %>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div>
+      <h3><%= t "football_pitch.info_football_pitch" %></h3>
+      <div class="location">
+          <span><b><%= FootballPitch.human_attribute_name("location") %></b>: <%= @football_pitch.location %></span>
+      </div>
+      <div class="price">
+          <span><b><%= FootballPitch.human_attribute_name("price_per_hour") %></b>: <%= @football_pitch.price_per_hour %> đ</span>
+      </div>
+    </div>
+    <div>
+      <h3><%= t "football_pitch_type.info_football_pitch_type" %></h3>
+      <div class="location">
+          <span><b><%= FootballPitchType.human_attribute_name("name") %></b>: <%= @football_pitch.football_pitch_type.name %></span>
+      </div>
+      <div class="length">
+          <span><b><%= FootballPitchType.human_attribute_name("length") %></b>: <%= @football_pitch.football_pitch_type.length %> m</span>
+      </div>
+      <div class="width">
+          <span><b><%= FootballPitchType.human_attribute_name("width") %></b>: <%= @football_pitch.football_pitch_type.width %> m</span>
+      </div>
+    </div>
+  </div>
+</div>

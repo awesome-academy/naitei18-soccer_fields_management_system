@@ -3,7 +3,7 @@ class FootballPitchesController < ApplicationController
   authorize_resource
 
   def index
-    @football_pitches = FootballPitch.newest
+    @pagy, @football_pitches = pagy FootballPitch.newest
   end
 
   def new
@@ -12,7 +12,8 @@ class FootballPitchesController < ApplicationController
   end
 
   def show
-    @football_pitch = FootballPitch.find(params[:id])
+    @football_pitch = FootballPitch.includes(:football_pitch_type)
+                                   .find_by id: params[:id]
 
     return if @football_pitch
 
@@ -24,7 +25,7 @@ class FootballPitchesController < ApplicationController
     @football_pitch = FootballPitch.new football_pitch_params
     if @football_pitch.save
       flash[:success] = t "flash.create_football_pitch_success"
-      redirect_to root_url
+      redirect_to football_pitches_url
     else
       flash[:danger] = t "flash.create_football_pitch_fail"
       render :new
