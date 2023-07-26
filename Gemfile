@@ -16,6 +16,10 @@ gem "rails-i18n"
 gem "config"
 gem "bcrypt", "3.1.13"
 gem "faker", ">= 3.2.0"
+gem "active_storage_validations", "1.0.4"
+gem "image_processing", "1.12.2"
+gem "mini_magick"
+gem "cancancan"
 gem "bootsnap", ">= 1.4.4", require: false
 
 group :development, :test do

@@ -3,12 +3,23 @@ en:
   activerecord:
     models:
       user: "User"
+      football_pitch: "Football pitch"
+      football_pitch_type: "Football pitch type"
     attributes:
       user:
         name: "Name"
         email: "Email"
         password: "Password"
         password_confirmation: "Password confirmation"
+      football_pitch:
+        name: "Name"
+        location: "Location"
+        price_per_hour: "Price per house"
+        picture: "Picture"
+      football_pitch_type:
+        name: "Name"
+        length: "Length"
+        width: "Width"
   header:
     home: "Home"
     help: "Help"
@@ -26,6 +37,10 @@ en:
     description: "Soccer Fields Management App"
   home:
     description: "Welcome to the Soccer Fields Management App"
+  form:
+    submit: "Submit"
+  modal:
+    close: "Close"
   sign_up:
     create_my_account: "Create account"
     title: "Sign up"
@@ -56,6 +71,12 @@ en:
     reset_password_success: "Reset Password success"
     user_in_actived: "User is in_actived!"
     reset_password_expired: "Password reset has expired."
+    please_login: "Please log in to continue."
+    not_authorized: "You are not authorized to access this page."
+    create_football_pitch_success: "Create Football Pitch Success"
+    create_football_pitch_fail: "Create Football Pitch Fail"
+    football_pitch_not_found: "Football Pitch not found!"
+    create_football_pitch_type_fail: "Create Football Pitch Type Fail"
   mail:
     account_activation: "Account activation"
     hi_message_html: "Hi, %{name}"
@@ -69,4 +90,7 @@ en:
     not_request: "If you did not request your password to be reset, please ignore this email and your password will stayas it is."
   forgot_password:
     title: "Forgot Password"
-    submit: "Submit"
+  football_pitch:
+    create_football_pitch: "Create football pitch"
+  football_pitch_type:
+    create_football_pitch_type: "Create football pitch type"

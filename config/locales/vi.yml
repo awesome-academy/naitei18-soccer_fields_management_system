@@ -3,12 +3,23 @@ vi:
   activerecord:
     models:
       user: "Người dùng"
+      football_pitch: "Sân bóng đá"
+      football_pitch_type: "Loại sân bóng đá"
     attributes:
       user:
         name: "Tên"
         email: "Email"
         password: "Mật khẩu"
         confirmation: "Nhập lại mật khẩu"
+      football_pitch:
+        name: "Tên"
+        location: "Địa chỉ"
+        price_per_hour: "Giá mỗi giờ"
+        picture: "Hình ảnh"
+      football_pitch_type:
+        name: "Tên"
+        length: "Chiều dài"
+        width: "Chiều rộng"
   header:
     home: "Trang chủ"
     help: "Trợ giúp"
@@ -26,6 +37,10 @@ vi:
     description: "Ứng dụng Soccer Fields Management"
   home:
     description: "Chào mừng đến với ứng dụng Soccer Fields Management"
+  form:
+    submit: "Xác nhận"
+  modal:
+    close: "Đóng"
   sign_up:
     create_my_account: "Tạo tài khoản"
     title: "Đăng ký"
@@ -54,6 +69,12 @@ vi:
     reset_password_success: "Đổi mật khẩu thành công"
     user_in_actived: "Người dùng không được kích hoạt!"
     reset_password_expired: "Đặt lại mật khẩu đã hết hạn"
+    please_login: "Xin hãy đăng nhập để tiếp tục."
+    not_authorized: "Bạn không có quyền truy cập trang này."
+    create_football_pitch_success: "Tạo sân bóng mới thành công"
+    create_football_pitch_fail: "Tạo sân bóng mới thất bại"
+    football_pitch_not_found: "Không tìm thấy sân bóng"
+    create_football_pitch_type_fail: "Tạo loại sân bóng mới thất bại"
   mail:
     account_activation: "Kích hoạt tài khoản"
     hi_message_html: "Xin chào, %{name}"
@@ -67,4 +88,7 @@ vi:
     not_request: "Nếu bạn không yêu cầu đặt lại mật khẩu của mình, vui lòng bỏ qua email này và mật khẩu của bạn sẽ giữ nguyên như cũ."
   forgot_password:
     title: "Quên mật khẩu"
-    submit: "Xác nhận"
+  football_pitch:
+    create_football_pitch: "Tạo sân bóng đá mới"
+  football_pitch_type:
+    create_football_pitch_type: "Tạo loại sân bóng đá mới"
