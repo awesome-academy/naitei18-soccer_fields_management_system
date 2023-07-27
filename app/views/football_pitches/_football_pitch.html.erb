@@ -1,0 +1,12 @@
+<li id="football_pitch-<%= football_pitch.id %>">
+  <%= image_tag football_pitch.display_image 0, [Settings.digit.size_200, Settings.digit.size_200] %>
+  <span class="name">
+    <%= link_to football_pitch.name, football_pitch %>
+  </span>
+  <span class="location">
+    <span class="glyphicon glyphicon-map-marker"></span> <%= football_pitch.location %>
+  </span>
+  <span class="price">
+    <span class="glyphicon glyphicon-usd"></span> <%= football_pitch.price_per_hour %>
+  </span>
+</li>
