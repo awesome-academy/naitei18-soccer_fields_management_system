@@ -1,0 +1,39 @@
+<% provide :title, @booking.football_pitch.name %>
+<div class="container">
+  <h1><%= @booking.football_pitch.name %></h1>
+  <div class="col-md-6">
+    <div>
+      <h3><%= t "booking.info_booking" %></h3>
+      <div class="info">
+          <span><b><%= FootballPitch.model_name.human %></b>: <%= link_to @booking.football_pitch.name, @booking.football_pitch %></span>
+      </div>
+      <div class="info">
+          <span><b><%= Booking.human_attribute_name("date_booking") %></b>: <%= Booking.format_date @booking.date_booking %></span>
+      </div>
+      <div class="info">
+          <span><b><%= Booking.human_attribute_name("start_time") %> -> <%= Booking.human_attribute_name("end_time") %></b>: <%= @booking.get_time %></span>
+      </div>
+      <div class="info">
+          <span><b><%= Booking.human_attribute_name("total_cost") %></b>: <%= @booking.total_cost %>đ</span>
+      </div>
+      <div class="info">
+          <span><b><%= Booking.human_attribute_name("status") %></b>: <%= t "booking.status.#{@booking.status}" %></span>
+      </div>
+      <div class="info">
+          <span><b><%= User.model_name.human %></b>: <%= @booking.user.name %></span>
+      </div>
+      <div class="info">
+          <span><b><%= Booking.human_attribute_name("created_at") %></b>: <%= Booking.format_date @booking.date_booking %></span>
+      </div>
+    </div>
+    <div>
+      <h3><%= t "booking.info_customer" %></h3>
+      <div class="info">
+          <span><b><%= Booking.human_attribute_name("name") %></b>: <%= @booking.name %></span>
+      </div>
+      <div class="info">
+          <span><b><%= Booking.human_attribute_name("phone_number") %></b>: <%= @booking.phone_number %></span>
+      </div>
+    </div>
+  </div>
+</div>

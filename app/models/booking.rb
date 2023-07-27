@@ -2,9 +2,13 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :football_pitch
 
+  enum status: {pending: 0, accepted: 1, not_accepted: 2, cancalled: 3}
+
   scope :booking_in_date, lambda {|date_booking|
     where(date_booking: date_booking)
   }
+
+  scope :newest, ->{order created_at: :desc}
 
   validates :name,
             presence: true,
@@ -22,7 +26,11 @@ class Booking < ApplicationRecord
            unless: ->{start_time.blank? || end_time.blank?}
 
   def self.time_format time
-    time.strftime("%H:%M")
+    time.strftime(Settings.format.time)
+  end
+
+  def self.format_date date
+    date.strftime(Settings.format.date)
   end
 
   def get_time
@@ -60,7 +68,8 @@ class Booking < ApplicationRecord
         end
       end
     else
-      errors.add(:football_pitch_id, I18n.t("errors.messages.football_pitch_not_found"))
+      errors.add(:football_pitch_id,
+                 I18n.t("errors.messages.football_pitch_not_found"))
     end
   end
 end

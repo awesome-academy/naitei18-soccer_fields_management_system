@@ -11,5 +11,7 @@ digit:
   size_500: 500
 format:
   images: ["image/jpeg", "image/gif", "image/png"]
+  time: "%H:%M"
+  date: "%d-%m-%Y"
 comparison:
   number_0: 0

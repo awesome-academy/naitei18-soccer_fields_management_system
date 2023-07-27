@@ -222,7 +222,7 @@ span.image {
 }
 
 /* microposts */
-.football_pitches {
+.football_pitches, .bookings {
   list-style: none;
   padding: 0;
 
@@ -237,17 +237,12 @@ span.image {
     padding-top: 0;
     font-size: 25px;
   }
-  .location {
+  .info {
     display: block;
     margin-left: 60px;
     font-size: 15px;
     margin-bottom: 5px;
-    margin-top: 10px;
-  }
-  .price {
-    display: block;
-    margin-left: 60px;
-    font-size: 15px;
+    margin-top: 5px;
   }
 
   img {
