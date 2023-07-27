@@ -6,7 +6,8 @@ class FootballPitchesController < ApplicationController
   authorize_resource
 
   def index
-    @pagy, @football_pitches = pagy FootballPitch.newest
+    @q = FootballPitch.ransack(params[:q])
+    @pagy, @football_pitches = pagy @q.result.newest
   end
 
   def new

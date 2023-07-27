@@ -1,5 +1,10 @@
 en:
   app_name: "Soccer Fields Management App"
+  ransack:
+    predicates:
+      cont: "contains"
+      gteq: "greater than"
+      lteq: "less than"
   activerecord:
     models:
       user: "User"

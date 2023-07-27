@@ -1,6 +1,23 @@
 <% provide :title, t("football_pitch.football_pitch_all") %>
 <div class="row">
   <aside class="col-md-4">
+  <h3>Search Football Pitch</h2>
+    <%= search_form_for @q do |f| %>
+
+      <%= f.label :name_cont, FootballPitch.human_attribute_name("name") %>
+      <%= f.search_field :name_cont %>
+
+      <%= f.label :football_pitch_type_id_eq, FootballPitchType.model_name.human %>
+      <%= f.collection_select :football_pitch_type_id_eq, FootballPitchType.order(:name), :id, :name, prompt: true %>
+
+      <%= f.label :price_per_hour_gteq %>
+      <%= f.search_field :price_per_hour_gteq %>
+
+      <%= f.label :price_per_hour_lteq %>
+      <%= f.search_field :price_per_hour_lteq %>
+
+      <%= f.submit %>
+    <% end %>
   </aside>
   <div class="col-md-8">
     <% if @football_pitches.any? %>

@@ -36,6 +36,10 @@ class Booking < ApplicationRecord
            unless: ->{start_time.blank? || end_time.blank?},
            on: :create
 
+  def self.ransackable_attributes _auth_object = nil
+    %w(date_booking status)
+  end
+
   class << self
     def time_format time
       time.strftime(Settings.format.time)

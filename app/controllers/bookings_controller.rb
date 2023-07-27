@@ -5,9 +5,10 @@ class BookingsController < ApplicationController
   authorize_resource
 
   def index
-    @pagy, @bookings = pagy Booking.includes(:football_pitch, :user)
-                                   .accessible_by(current_ability)
-                                   .newest
+    @q = Booking.ransack(params[:q])
+    @pagy, @bookings = pagy @q.result.includes(:football_pitch, :user)
+                              .accessible_by(current_ability)
+                              .newest
   end
 
   def new
