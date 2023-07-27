@@ -1,6 +1,9 @@
 class BookingsController < ApplicationController
+  before_action :logged_in_user
   before_action :load_football_pitch, only: %i(new create)
-  before_action :load_booking, only: %i(show)
+  before_action :load_booking, only: %i(show update_status cancel)
+  authorize_resource
+
   def index
     @pagy, @bookings = pagy Booking.includes(:football_pitch, :user)
                                    .accessible_by(current_ability)
@@ -20,6 +23,26 @@ class BookingsController < ApplicationController
       redirect_to bookings_path
     else
       render :new
+    end
+  end
+
+  def update_status
+    if params[:status] == :accepted
+      @booking.accepted!
+    else
+      @booking.unaccepted!
+    end
+    respond_to(&:js)
+  end
+
+  def cancel
+    if @booking.canceled!
+      respond_to do |format|
+        format.js{render "update_status"}
+      end
+    else
+      flash[:danger] = t "flash.canceled_football_pitch_fail"
+      redirect_to bookings_path
     end
   end
 

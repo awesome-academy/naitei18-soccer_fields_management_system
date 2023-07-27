@@ -88,11 +88,21 @@ vi:
     update_football_pitch_price_fail: "Cập nhật tiền thuê sân bóng thất bại"
     create_booking_success: "Tạo đặt sân mới thành công"
     booking_not_found: "Không tìm thấy đơn đặt sân"
+    canceled_football_pitch_fail: "Hủy bỏ sân thất bại"
+  confirm:
+    accepted_booking: "Bạn có chắc muốn chấp nhận đơn đặt sân không?"
+    unaccepted_booking: "Bạn có chắc muốn từ chối đơn đặt sân không?"
+    cancel_booking: "Bạn có chắc muốn hủy bỏ đơn đặt sân không?"
   mail:
     account_activation: "Kích hoạt tài khoản"
     hi_message_html: "Xin chào, %{name}"
     welcome_sentence: "Chào mừng đến với Sample App! Click vào link bên dưới để kích hoạt tài khoản:"
     activate: "Kích hoạt"
+    accepted_booking_html: "Chúng tôi rất vui khi thông báo rằng đơn đặt sân cho %{football_pitch_name} đã được chấp nhận"
+    unaccepted_booking_html: "Chúng tôi rất buồn khi thông báo rằng đơn đặt sân cho %{football_pitch_name} đã bị từ chối"
+    see_booking: "xem thông tin chi tiết trạng thái của đơn đặt sân"
+    accepted_booking: "Chấp nhận đơn đặt sân"
+    unaccepted_booking: "Từ chối đơn đặt sân"
   reset_password:
     title: "Đặt lại mật khẩu"
     click_link: "Để thay đổi mật khẩu hãy nhấn vào đường dẫn phía dưới:"
@@ -114,11 +124,14 @@ vi:
     all_bookings: "Tất cả đơn đặt sân"
     info_booking: "Thông tin đơn đặt sân"
     info_customer: "Thông tin khách hàng"
+    accepted: "Chấp nhận"
+    unaccepted: "Từ chối"
+    cancel: "Hủy bỏ"
     status:
       pending: "Chờ duyệt"
       accepted:  "Được chấp nhận"
-      not_accepted: "Bị tự chối"
-      cancalled: "Đã hủy"
+      unaccepted: "Bị từ chối"
+      canceled: "Đã hủy"
   button:
    edit: "Chỉnh sửa"
    delete: "Xóa"

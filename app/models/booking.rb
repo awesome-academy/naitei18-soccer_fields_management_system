@@ -1,8 +1,13 @@
 class Booking < ApplicationRecord
+  after_update ->{send_accept_unaccept_email "accepted"},
+               if: proc{|obj| obj.status == "accepted"}
+  after_update ->{send_accept_unaccept_email "unaccepted"},
+               if: proc{|obj| obj.status == "unaccepted"}
+
   belongs_to :user
   belongs_to :football_pitch
 
-  enum status: {pending: 0, accepted: 1, not_accepted: 2, cancalled: 3}
+  enum status: {pending: 0, accepted: 1, unaccepted: 2, canceled: 3}
 
   scope :booking_in_date, lambda {|date_booking|
     where(date_booking: date_booking)
@@ -16,25 +21,32 @@ class Booking < ApplicationRecord
 
   validates :phone_number,
             presence: true,
-            length: {maximum: Settings.digit.length_20}
+            length: {maximum: Settings.digit.length_50}
 
   validates :date_booking, :start_time, :end_time, :total_cost,
             presence: true
 
   validate :end_time_must_be_1_hour_greater_than_start_time,
            :the_booking_time_cannot_coincide_with_another_booking_time,
-           unless: ->{start_time.blank? || end_time.blank?}
+           unless: ->{start_time.blank? || end_time.blank?},
+           on: :create
 
-  def self.time_format time
-    time.strftime(Settings.format.time)
-  end
+  class << self
+    def time_format time
+      time.strftime(Settings.format.time)
+    end
 
-  def self.format_date date
-    date.strftime(Settings.format.date)
+    def format_date date
+      date.strftime(Settings.format.date)
+    end
   end
 
   def get_time
     "#{Booking.time_format start_time} -> #{Booking.time_format end_time}"
+  end
+
+  def send_accept_unaccept_email type
+    BookingMailer.accept_unaccept(self, type).deliver_now
   end
 
   private

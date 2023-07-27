@@ -9,11 +9,12 @@ class Ability
     return if user.blank?
 
     can :create, Booking
-    can :read, Booking, user: user
+    can [:read, :cancel], Booking, user: user
     can :time_booked_booking, FootballPitch
 
     return unless user.admin?
 
-    can :manage, :all
+    can :manage, FootballPitch
+    can [:read, :update_status], Booking
   end
 end
