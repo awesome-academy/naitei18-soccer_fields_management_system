@@ -7,7 +7,7 @@
       <h3><%= t "football_pitch.football_pitch_all" %></h3>
       <% if can? :create, FootballPitch %>
         <div class="create_football_pitch">
-          <%= link_to "<button type=\"button\">New Football Pitch</button>".html_safe, new_football_pitch_url %>
+          <%= link_to "<button type=\"button\" class=\"btn btn-primary\">#{t "football_pitch.create_football_pitch"}</button>".html_safe, new_football_pitch_url %>
         </div>
       <% end %>
       <ol class="football_pitches">

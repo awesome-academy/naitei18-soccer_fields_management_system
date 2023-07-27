@@ -37,10 +37,6 @@ vi:
     description: "Ứng dụng Soccer Fields Management"
   home:
     description: "Chào mừng đến với ứng dụng Soccer Fields Management"
-  form:
-    submit: "Xác nhận"
-  modal:
-    close: "Đóng"
   sign_up:
     create_my_account: "Tạo tài khoản"
     title: "Đăng ký"
@@ -75,6 +71,8 @@ vi:
     create_football_pitch_fail: "Tạo sân bóng mới thất bại"
     football_pitch_not_found: "Không tìm thấy sân bóng"
     create_football_pitch_type_fail: "Tạo loại sân bóng mới thất bại"
+    update_football_pitch_price_success: "Cập nhật tiền thuê sân bóng thành công"
+    update_football_pitch_price_fail: "Cập nhật tiền thuê sân bóng thất bại"
   mail:
     account_activation: "Kích hoạt tài khoản"
     hi_message_html: "Xin chào, %{name}"
@@ -92,6 +90,12 @@ vi:
     create_football_pitch: "Tạo sân bóng đá mới"
     info_football_pitch: "Thông tin về sân bóng"
     football_pitch_all: "Tất cả sân bóng đá"
+    edit_football_pitch_price: "Chỉnh sửa tiền thuê sân bóng"
   football_pitch_type:
     create_football_pitch_type: "Tạo loại sân bóng đá mới"
     info_football_pitch_type: "Thông tin về loại sân bóng"
+  button:
+   edit: "Chỉnh sửa"
+   delete: "Xóa"
+   submit: "Xác nhận"
+   close: "Đóng"
