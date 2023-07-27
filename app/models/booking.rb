@@ -13,6 +13,11 @@ class Booking < ApplicationRecord
     where(date_booking: date_booking)
   }
 
+  scope :booking_status, ->(status){where(status: status)}
+
+  scope :booking_future_and_accepted,
+        ->{booking_status(:accepted).where(date_booking: (Time.zone.now)..)}
+
   scope :newest, ->{order created_at: :desc}
 
   validates :name,

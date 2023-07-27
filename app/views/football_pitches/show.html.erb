@@ -55,6 +55,7 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editFootballPitchPriceModal">
           <%= t "button.edit" %>
         </button>
+        <%= link_to "<button type=\"button\" class=\"btn btn-danger\">#{t "football_pitch.delete_football_pitch"}</button>".html_safe, @football_pitch, method: :delete, data: {confirm: t("confirm.delete_football_pitch")} %>
       </div>
     <% end %>
     <% if current_user.user? %>
