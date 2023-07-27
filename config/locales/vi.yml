@@ -73,6 +73,8 @@ vi:
     create_football_pitch_type_fail: "Tạo loại sân bóng mới thất bại"
     update_football_pitch_price_success: "Cập nhật tiền thuê sân bóng thành công"
     update_football_pitch_price_fail: "Cập nhật tiền thuê sân bóng thất bại"
+    delete_football_pitch_success: "Xóa sân bóng thành công"
+    delete_football_pitch_fail: "Xóa sân bóng thất bại"
   mail:
     account_activation: "Kích hoạt tài khoản"
     hi_message_html: "Xin chào, %{name}"
@@ -99,3 +101,5 @@ vi:
    delete: "Xóa"
    submit: "Xác nhận"
    close: "Đóng"
+  confirm:
+    delete_football_pitch: "Bạn có chắc muốn xóa sân bóng này không?"

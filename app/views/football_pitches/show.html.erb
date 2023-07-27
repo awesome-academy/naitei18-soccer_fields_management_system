@@ -51,10 +51,11 @@
       </div>
     </div>
     <% if can? :update, FootballPitch %>
-      <div>
+      <div class="btn-group">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editFootballPitchPriceModal">
           <%= t "button.edit" %>
         </button>
+        <%= button_to "Delete", @football_pitch, method: :delete, class:"btn btn-danger", data: {confirm: t("confirm.delete_football_pitch")} %>
       </div>
     <% end %>
   </div>

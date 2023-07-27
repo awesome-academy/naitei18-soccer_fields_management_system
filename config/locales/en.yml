@@ -75,6 +75,8 @@ en:
     create_football_pitch_type_fail: "Create Football Pitch Type Fail"
     update_football_pitch_price_success: "Update football pitch price success"
     update_football_price_price_fail: "Update football pitch price fail"
+    delete_football_pitch_success: "Delete football pitch price success"
+    delete_football_pitch_fail: "Delete football pitch price fail"
   mail:
     account_activation: "Account activation"
     hi_message_html: "Hi, %{name}"
@@ -101,3 +103,5 @@ en:
    delete: "Delete"
    submit: "Submit"
    close: "Close"
+  confirm:
+    delete_football_pitch: "Are you confirm to delete this football pitch?"

@@ -1,6 +1,6 @@
 class FootballPitchesController < ApplicationController
   before_action :logged_in_user, only: %i(new create)
-  before_action :load_football_pitch, only: %i(update)
+  before_action :load_football_pitch, only: %i(update destroy)
   authorize_resource
 
   def index
@@ -40,6 +40,15 @@ class FootballPitchesController < ApplicationController
       flash[:danger] = t "flash.update_football_pitch_price_fail"
     end
     redirect_to @football_pitch
+  end
+
+  def destroy
+    if @football_pitch.destroy
+      flash[:success] = t "flash.delete_football_pitch_success"
+    else
+      flash[:danger] = t "flash.delete_football_pitch_fail"
+    end
+    redirect_to football_pitches_url
   end
 
   private
