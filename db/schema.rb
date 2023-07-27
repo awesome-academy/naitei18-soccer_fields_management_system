@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_24_021229) do
+ActiveRecord::Schema.define(version: 2023_08_03_090149) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 2023_07_24_021229) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "follows", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "football_pitch_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["football_pitch_id"], name: "index_follows_on_football_pitch_id"
+    t.index ["user_id"], name: "index_follows_on_user_id"
+  end
+
   create_table "football_pitch_types", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.integer "length"
@@ -94,5 +103,7 @@ ActiveRecord::Schema.define(version: 2023_07_24_021229) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "football_pitches"
   add_foreign_key "bookings", "users"
+  add_foreign_key "follows", "football_pitches"
+  add_foreign_key "follows", "users"
   add_foreign_key "football_pitches", "football_pitch_types"
 end

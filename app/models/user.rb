@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :football_pitches, through: :bookings
 
+  has_many :follows, dependent: :destroy
+  has_many :football_pitches, through: :follows
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PASSWORD_REGEX = /\A
                         (?=.*[a-z])
@@ -85,6 +88,14 @@ class User < ApplicationRecord
 
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  def follow football_pitch
+    football_pitches << football_pitch
+  end
+
+  def unfollow football_pitch
+    football_pitches.delete football_pitch
   end
 
   private

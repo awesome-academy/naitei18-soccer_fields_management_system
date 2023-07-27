@@ -1,0 +1,5 @@
+<%= form_for(current_user.follows
+  .find_by(football_pitch_id: @football_pitch.id),
+  html: {method: :delete}, remote: true) do |f| %>
+  <%= f.submit t("follow.unfollow"), class: "btn btn-danger" %>
+<% end %>
