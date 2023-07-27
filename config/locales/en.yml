@@ -5,6 +5,7 @@ en:
       user: "User"
       football_pitch: "Football pitch"
       football_pitch_type: "Football pitch type"
+      booking: "Booking"
     attributes:
       user:
         name: "Name"
@@ -22,6 +23,13 @@ en:
         name: "Name"
         length: "Length"
         width: "Width"
+      booking:
+        name: "Name"
+        phone_number: "Phone Number"
+        date_booking: "Date Booking"
+        start_time: "Start time"
+        end_time: "End time"
+        total_cost: "Total cost"
   header:
     home: "Home"
     sign_up: "Sign up"
@@ -78,6 +86,7 @@ en:
     create_football_pitch_type_fail: "Create Football Pitch Type Fail"
     update_football_pitch_price_success: "Update football pitch price success"
     update_football_price_price_fail: "Update football pitch price fail"
+    create_booking_success: "Create Booking Success"
   mail:
     account_activation: "Account activation"
     hi_message_html: "Hi, %{name}"
@@ -99,6 +108,8 @@ en:
   football_pitch_type:
     create_football_pitch_type: "Create football pitch type"
     info_football_pitch_type: "Information of football pitch type"
+  booking:
+    create_booking: "Create Booking"
   button:
    edit: "Edit"
    delete: "Delete"
@@ -110,3 +121,9 @@ en:
     messages:
       invalid_image_format: "must be a valid image format"
       invalid_image_size_html: "should be less than %{size}MB"
+      coincide_time: "booking time cannot coincide with another booking time"
+      end_time_start_time_comparison: "must be 1 hour greater than start time"
+      football_pitch_not_found: "not found!"
+  javascript:
+    can_not_booking_coincide_with_these_times: "You can not booking coincide with these times:"
+    can_booking_any_time: "You can booking any time you want"

@@ -1,6 +1,6 @@
 class FootballPitchesController < ApplicationController
   before_action :logged_in_user, only: %i(new create)
-  before_action :load_football_pitch, only: %i(update)
+  before_action :load_football_pitch, only: %i(update time_booked_booking)
   authorize_resource
 
   def index
@@ -9,7 +9,6 @@ class FootballPitchesController < ApplicationController
 
   def new
     @football_pitch = FootballPitch.new
-    @football_pitch_type = FootballPitchType.new
   end
 
   def show
@@ -39,6 +38,13 @@ class FootballPitchesController < ApplicationController
       flash[:danger] = t "flash.update_football_pitch_price_fail"
     end
     redirect_to @football_pitch
+  end
+
+  def time_booked_booking
+    result = @football_pitch.time_booked_booking_format params[:date_booking]
+    respond_to do |format|
+      format.json{render json: result.as_json}
+    end
   end
 
   private

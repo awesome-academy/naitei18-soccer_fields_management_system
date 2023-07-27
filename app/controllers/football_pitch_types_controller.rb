@@ -5,9 +5,7 @@ class FootballPitchTypesController < ApplicationController
   def create
     @football_pitch_type = FootballPitchType.new football_pitch_type_params
     @football_pitch_type.save
-    respond_to do |format|
-      format.js
-    end
+    respond_to(&:js)
   end
 
   private

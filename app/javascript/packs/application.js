@@ -14,3 +14,8 @@ import "bootstrap"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import {I18n} from "i18n-js";
+import translations from "locales.json";
+
+window.I18n = new I18n(translations);

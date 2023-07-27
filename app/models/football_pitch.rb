@@ -15,7 +15,7 @@ class FootballPitch < ApplicationRecord
 
   validates :price_per_hour,
             presence: true,
-            numericality: { greater_than: 0 }
+            numericality: {greater_than: 0}
 
   validates :images,
             content_type: {
@@ -30,5 +30,15 @@ class FootballPitch < ApplicationRecord
 
   def display_image index, image_size
     images[index].variant resize_to_limit: image_size
+  end
+
+  def time_booked_booking date_booking
+    bookings.booking_in_date(date_booking).order("start_time ASC").select(
+      :start_time, :end_time
+    ).distinct
+  end
+
+  def time_booked_booking_format date_booking
+    time_booked_booking(date_booking).map(&:get_time)
   end
 end

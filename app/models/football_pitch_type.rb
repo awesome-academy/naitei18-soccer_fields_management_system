@@ -7,5 +7,5 @@ class FootballPitchType < ApplicationRecord
 
   validates :length, :width,
             presence: true,
-            numericality: { greater_than: Settings.comparison.number_0 }
+            numericality: {greater_than: Settings.comparison.number_0}
 end
