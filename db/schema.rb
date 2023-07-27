@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_03_090149) do
+ActiveRecord::Schema.define(version: 2023_08_03_152711) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -83,6 +83,17 @@ ActiveRecord::Schema.define(version: 2023_08_03_090149) do
     t.index ["football_pitch_type_id"], name: "index_football_pitches_on_football_pitch_type_id"
   end
 
+  create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.text "comment"
+    t.integer "rating"
+    t.bigint "football_pitch_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["football_pitch_id"], name: "index_reviews_on_football_pitch_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -106,4 +117,6 @@ ActiveRecord::Schema.define(version: 2023_08_03_090149) do
   add_foreign_key "follows", "football_pitches"
   add_foreign_key "follows", "users"
   add_foreign_key "football_pitches", "football_pitch_types"
+  add_foreign_key "reviews", "football_pitches"
+  add_foreign_key "reviews", "users"
 end

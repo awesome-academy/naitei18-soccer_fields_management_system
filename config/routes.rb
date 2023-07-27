@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :password_resets, only: %i(new create edit update)
     resources :football_pitches do
       resources :bookings, only: %i(new create)
+      resources :reviews
       member do
         get "time_booked_booking", to: "football_pitches#time_booked_booking"
       end

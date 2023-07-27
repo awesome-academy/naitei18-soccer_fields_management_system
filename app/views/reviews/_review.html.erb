@@ -1,0 +1,15 @@
+<li id="micropost-<%= review.id %>">
+  <%= link_to gravatar_for(review.user), review.user %>
+  <span class="user">
+    <%= link_to review.user.name, review.user %>
+  </span>
+  <span class="content">
+    <%= review.rating %>
+  </span>
+  <span class="content">
+    <%= review.comment %>
+  </span>
+  <span class="timestamp">
+    <%= t "review.posted_ago_html", time: time_ago_in_words(review.created_at) %>
+  </span>
+</li>

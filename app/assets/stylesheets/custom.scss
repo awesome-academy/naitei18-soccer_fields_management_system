@@ -256,3 +256,40 @@ span.image {
 .create_football_pitch {
   margin-bottom: 10px;
 }
+
+.review {
+  border-top: 1px solid #222;
+  margin-top: 45px;
+  padding-top: 5px;
+}
+/* reviews */
+.reviews {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+  }
+
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
