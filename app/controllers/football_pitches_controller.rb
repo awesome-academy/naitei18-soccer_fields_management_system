@@ -28,7 +28,6 @@ class FootballPitchesController < ApplicationController
       flash[:success] = t "flash.create_football_pitch_success"
       redirect_to football_pitches_url
     else
-      flash[:danger] = t "flash.create_football_pitch_fail"
       render :new
     end
   end

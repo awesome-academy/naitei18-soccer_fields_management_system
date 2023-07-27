@@ -3,6 +3,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3" id="abc_form">
   <%= form_for @football_pitch do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
 
     <%= f.label :name, FootballPitch.human_attribute_name("name") %>
     <%= f.text_field :name, class: "form-control" %>
@@ -39,7 +40,8 @@
         <h4 class="modal-title"><%= t "football_pitch_type.create_football_pitch_type" %></h4>
       </div>
       <div class="modal-body">
-        <%= form_for(@football_pitch_type, remote: true) do |f| %>
+        <%= form_for(@footballPichType ||= FootballPitchType.new, remote: true) do |f| %>
+          <%= render "shared/error_messages", object: f.object %>
 
           <%= f.label :name, FootballPitchType.human_attribute_name("name") %>
           <%= f.text_field :name, class: "form-control" %>
@@ -50,14 +52,12 @@
           <%= f.label :width, FootballPitchType.human_attribute_name("width") %>
           <%= f.number_field :width %>
 
-
-          <%= f.submit t("form.submit"), class: "btn btn-primary" %>
+          <%= f.submit t("button.submit"), class: "btn btn-primary" %>
         <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><%= t "button.close" %></button>
       </div>
     </div>
-
   </div>
 </div>

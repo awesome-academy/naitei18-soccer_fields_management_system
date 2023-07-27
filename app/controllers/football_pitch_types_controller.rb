@@ -4,11 +4,9 @@ class FootballPitchTypesController < ApplicationController
 
   def create
     @football_pitch_type = FootballPitchType.new football_pitch_type_params
-    if @football_pitch_type.save
-      respond_to(&:js)
-    else
-      flash[:danger] = t "flash.create_football_pitch_type_fail"
-      redirect_to root_url
+    @football_pitch_type.save
+    respond_to do |format|
+      format.js
     end
   end
 

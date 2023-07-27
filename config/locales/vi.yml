@@ -15,6 +15,8 @@ vi:
         name: "Tên"
         location: "Địa chỉ"
         price_per_hour: "Giá mỗi giờ"
+        images: "Hình ảnh"
+        football_pitch_type: "Loại sân bóng đá"
         picture: "Hình ảnh"
       football_pitch_type:
         name: "Tên"
@@ -70,6 +72,7 @@ vi:
     create_football_pitch_success: "Tạo sân bóng mới thành công"
     create_football_pitch_fail: "Tạo sân bóng mới thất bại"
     football_pitch_not_found: "Không tìm thấy sân bóng"
+    create_football_pitch_type_success: "Tạo loại sân bóng mới thành công"
     create_football_pitch_type_fail: "Tạo loại sân bóng mới thất bại"
     update_football_pitch_price_success: "Cập nhật tiền thuê sân bóng thành công"
     update_football_pitch_price_fail: "Cập nhật tiền thuê sân bóng thất bại"
@@ -99,3 +102,9 @@ vi:
    delete: "Xóa"
    submit: "Xác nhận"
    close: "Đóng"
+  errors:
+    cant_be_empty: "không được để trống"
+    max_file_size: "Tệp phải có dung lượng ít hơn %{size}MB"
+    messages:
+      invalid_image_format: "phải đúng kiểu dữ liệu ảnh"
+      invalid_image_size_html: "phải ít hơn %{size}MB"
