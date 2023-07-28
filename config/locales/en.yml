@@ -37,10 +37,6 @@ en:
     description: "Soccer Fields Management App"
   home:
     description: "Welcome to the Soccer Fields Management App"
-  form:
-    submit: "Submit"
-  modal:
-    close: "Close"
   sign_up:
     create_my_account: "Create account"
     title: "Sign up"
@@ -77,6 +73,8 @@ en:
     create_football_pitch_fail: "Create Football Pitch Fail"
     football_pitch_not_found: "Football Pitch not found!"
     create_football_pitch_type_fail: "Create Football Pitch Type Fail"
+    update_football_pitch_price_success: "Update football pitch price success"
+    update_football_price_price_fail: "Update football pitch price fail"
   mail:
     account_activation: "Account activation"
     hi_message_html: "Hi, %{name}"
@@ -94,6 +92,12 @@ en:
     create_football_pitch: "Create football pitch"
     info_football_pitch: "Information of football pitch"
     football_pitch_all: "All Football Pitches"
+    edit_football_pitch_price: "Update football pitch price"
   football_pitch_type:
     create_football_pitch_type: "Create football pitch type"
     info_football_pitch_type: "Information of football pitch type"
+  button:
+   edit: "Edit"
+   delete: "Delete"
+   submit: "Submit"
+   close: "Close"

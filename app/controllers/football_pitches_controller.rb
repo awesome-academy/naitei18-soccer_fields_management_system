@@ -1,5 +1,6 @@
 class FootballPitchesController < ApplicationController
   before_action :logged_in_user, only: %i(new create)
+  before_action :load_football_pitch, only: %i(update)
   authorize_resource
 
   def index
@@ -32,7 +33,25 @@ class FootballPitchesController < ApplicationController
     end
   end
 
+  def update
+    if @football_pitch.update football_pitch_params
+      flash[:success] = t "flash.update_football_pitch_price_success"
+    else
+      flash[:danger] = t "flash.update_football_pitch_price_fail"
+    end
+    redirect_to @football_pitch
+  end
+
   private
+
+  def load_football_pitch
+    @football_pitch = FootballPitch.find_by id: params[:id]
+
+    return if @football_pitch
+
+    flash[:danger] = t "flash.football_pitch_not_found"
+    redirect_to root_url
+  end
 
   def football_pitch_params
     params.require(:football_pitch)

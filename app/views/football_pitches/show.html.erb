@@ -50,5 +50,35 @@
           <span><b><%= FootballPitchType.human_attribute_name("width") %></b>: <%= @football_pitch.football_pitch_type.width %> m</span>
       </div>
     </div>
+    <% if can? :update, FootballPitch %>
+      <div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editFootballPitchPriceModal">
+          <%= t "button.edit" %>
+        </button>
+      </div>
+    <% end %>
   </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editFootballPitchPriceModal" role="dialog">
+ <div class="modal-dialog">
+   <!-- Modal content-->
+   <div class="modal-content">
+     <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+       <h4 class="modal-title"><%= t "football_pitch.edit_football_pitch_price" %></h4>
+     </div>
+     <div class="modal-body">
+       <%= form_for(@football_pitch, remote: true) do |f| %>
+         <%= f.label :name, FootballPitch.human_attribute_name("price_per_hour") %>
+         <%= f.text_field :price_per_hour, class: "form-control" %>
+         <%= f.submit t("button.submit"), class: "btn btn-primary" %>
+       <% end %>
+     </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-default" data-dismiss="modal"><%= t "button.close" %></button>
+     </div>
+   </div>
+ </div>
 </div>
