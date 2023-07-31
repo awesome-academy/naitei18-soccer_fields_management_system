@@ -1,3 +1,18 @@
-$("#football_pitch_football_pitch_type_id").append("<option value=\"<%= @football_pitch_type.id %>\"><%= @football_pitch_type.name %></option>");
-$("#createFootballPitchTypeModal").modal("hide");
-$("#new_football_pitch_type")[0].reset();
+<% if @football_pitch_type.id %>
+{
+  $("#football_pitch_football_pitch_type_id").prepend("<option value=\"<%= @football_pitch_type.id %>\"><%= @football_pitch_type.name %></option>");
+  $("#createFootballPitchTypeModal").modal("hide");
+  $("#new_football_pitch_type")[0].reset();
+}
+<% else %>
+{
+  if ($('#error_explanation').length)
+  {
+    $('#error_explanation').html('<%= j render("shared/error_messages", object: @football_pitch_type) %>')
+  }
+  else
+  {
+    $("#new_football_pitch_type").prepend('<%= j render("shared/error_messages", object: @football_pitch_type) %>')
+  }
+}
+<% end %>

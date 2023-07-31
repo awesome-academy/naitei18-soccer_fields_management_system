@@ -1,9 +1,14 @@
 digit:
   length_8: 8
   length_50: 50
+  length_150: 150
   length_255: 255
   size_5: 5
   size_50: 50
   size_80: 80
   size_200: 200
   size_500: 500
+format:
+  images: ["image/jpeg", "image/gif", "image/png"]
+comparison:
+  number_0: 0
