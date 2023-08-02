@@ -30,6 +30,8 @@ vi:
         start_time: "Thời gian bắt đầu"
         end_time: "Thời gian kết thúc"
         total_cost: "Tổng chi phí"
+        status: "Trạng thái"
+        created_at: "Ngày tạo"
   header:
     home: "Trang chủ"
     sign_up: "Đăng ký"
@@ -85,6 +87,7 @@ vi:
     update_football_pitch_price_success: "Cập nhật tiền thuê sân bóng thành công"
     update_football_pitch_price_fail: "Cập nhật tiền thuê sân bóng thất bại"
     create_booking_success: "Tạo đặt sân mới thành công"
+    booking_not_found: "Không tìm thấy đơn đặt sân"
   mail:
     account_activation: "Kích hoạt tài khoản"
     hi_message_html: "Xin chào, %{name}"
@@ -108,6 +111,14 @@ vi:
     info_football_pitch_type: "Thông tin về loại sân bóng"
   booking:
     create_booking: "Đặt sân"
+    all_bookings: "Tất cả đơn đặt sân"
+    info_booking: "Thông tin đơn đặt sân"
+    info_customer: "Thông tin khách hàng"
+    status:
+      pending: "Chờ duyệt"
+      accepted:  "Được chấp nhận"
+      not_accepted: "Bị tự chối"
+      cancalled: "Đã hủy"
   button:
    edit: "Chỉnh sửa"
    delete: "Xóa"

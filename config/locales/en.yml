@@ -30,6 +30,8 @@ en:
         start_time: "Start time"
         end_time: "End time"
         total_cost: "Total cost"
+        status: "Status"
+        created_at: "Created at"
   header:
     home: "Home"
     sign_up: "Sign up"
@@ -87,6 +89,7 @@ en:
     update_football_pitch_price_success: "Update football pitch price success"
     update_football_price_price_fail: "Update football pitch price fail"
     create_booking_success: "Create Booking Success"
+    booking_not_found: "Booking not found!"
   mail:
     account_activation: "Account activation"
     hi_message_html: "Hi, %{name}"
@@ -110,6 +113,14 @@ en:
     info_football_pitch_type: "Information of football pitch type"
   booking:
     create_booking: "Create Booking"
+    all_bookings: "All bookings"
+    info_booking: "Information of booking"
+    info_customer: "Information of customer"
+    status:
+      pending: "Pending"
+      accepted:  "Accept"
+      not_accepted: "Reject"
+      cancalled: "Cancel"
   button:
    edit: "Edit"
    delete: "Delete"

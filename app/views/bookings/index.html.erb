@@ -1,0 +1,14 @@
+<% provide :title, t("booking.all_bookings") %>
+<div class="row">
+  <aside class="col-md-4">
+  </aside>
+  <div class="col-md-8">
+    <% if @bookings.any? %>
+      <h3><%= t "booking.all_bookings" %></h3>
+      <ol class="bookings">
+        <%= render @bookings %>
+      </ol>
+    <% end %>
+    <%== pagy_bootstrap_nav @pagy %>
+  </div>
+</div>

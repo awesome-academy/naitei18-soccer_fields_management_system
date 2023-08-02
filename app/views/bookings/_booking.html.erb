@@ -1,0 +1,18 @@
+<li id="football_pitch-<%= booking.id %>">
+  <%= image_tag booking.football_pitch.display_image 0, [Settings.digit.size_200, Settings.digit.size_200] %>
+  <span class="name">
+    <%= link_to booking.football_pitch.name, booking %>
+  </span>
+  <span class="info">
+    <span class="glyphicon glyphicon-check"></span> <%= t "booking.status.#{booking.status}" %>
+  </span>
+  <span class="info">
+    <span class="glyphicon glyphicon-calendar"></span> <%= Booking.format_date booking.date_booking %>
+  </span>
+  <span class="info">
+    <span class="glyphicon glyphicon-time"></span> <%= booking.get_time %>
+  </span>
+  <span class="info">
+    <span class="glyphicon glyphicon-usd"></span> <%= booking.total_cost %>
+  </span>
+</li>
