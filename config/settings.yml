@@ -1,5 +1,6 @@
 digit:
   length_8: 8
+  length_20: 20
   length_50: 50
   length_150: 150
   length_255: 255

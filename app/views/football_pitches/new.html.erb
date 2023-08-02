@@ -40,7 +40,7 @@
         <h4 class="modal-title"><%= t "football_pitch_type.create_football_pitch_type" %></h4>
       </div>
       <div class="modal-body">
-        <%= form_for(@footballPichType ||= FootballPitchType.new, remote: true) do |f| %>
+        <%= form_for(@football_pich_type ||= FootballPitchType.new, remote: true) do |f| %>
           <%= render "shared/error_messages", object: f.object %>
 
           <%= f.label :name, FootballPitchType.human_attribute_name("name") %>

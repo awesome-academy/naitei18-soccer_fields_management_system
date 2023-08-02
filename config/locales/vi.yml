@@ -5,6 +5,7 @@ vi:
       user: "Người dùng"
       football_pitch: "Sân bóng đá"
       football_pitch_type: "Loại sân bóng đá"
+      booking: "Đặt sân"
     attributes:
       user:
         name: "Tên"
@@ -22,6 +23,13 @@ vi:
         name: "Tên"
         length: "Chiều dài"
         width: "Chiều rộng"
+      booking:
+        name: "Tên"
+        phone_number: "Số điện thoại"
+        date_booking: "Ngày đặt"
+        start_time: "Thời gian bắt đầu"
+        end_time: "Thời gian kết thúc"
+        total_cost: "Tổng chi phí"
   header:
     home: "Trang chủ"
     sign_up: "Đăng ký"
@@ -76,6 +84,7 @@ vi:
     create_football_pitch_type_fail: "Tạo loại sân bóng mới thất bại"
     update_football_pitch_price_success: "Cập nhật tiền thuê sân bóng thành công"
     update_football_pitch_price_fail: "Cập nhật tiền thuê sân bóng thất bại"
+    create_booking_success: "Tạo đặt sân mới thành công"
   mail:
     account_activation: "Kích hoạt tài khoản"
     hi_message_html: "Xin chào, %{name}"
@@ -97,6 +106,8 @@ vi:
   football_pitch_type:
     create_football_pitch_type: "Tạo loại sân bóng đá mới"
     info_football_pitch_type: "Thông tin về loại sân bóng"
+  booking:
+    create_booking: "Đặt sân"
   button:
    edit: "Chỉnh sửa"
    delete: "Xóa"
@@ -108,3 +119,9 @@ vi:
     messages:
       invalid_image_format: "phải đúng kiểu dữ liệu ảnh"
       invalid_image_size_html: "phải ít hơn %{size}MB"
+      coincide_time: "không được trùng với thời gian của đơn đặt sân khác"
+      end_time_start_time_comparison: "phải lớn hơn thời gian bắt đầu ít nhất 1 giờ"
+      football_pitch_not_found: "không tìm thấy"
+  javascript:
+    can_not_booking_coincide_with_these_times: "bạn không thể đặt trùng với những thời điểm này:"
+    can_booking_any_time: "Bạn có thể đặt bất cứ lúc nào bạn muốn"

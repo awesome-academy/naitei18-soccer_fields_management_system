@@ -1,0 +1,36 @@
+<h1><%= t "booking.create_booking" %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  <%= form_for @booking, url: football_pitch_bookings_path do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+
+    <%= f.label :date_booking, Booking.human_attribute_name("date_booking") %>
+    <%= f.date_field :date_booking, min: Date.today, class: "form-control" %>
+
+    <div id = "time_booked_booking"></div>
+
+    <%= f.label :start_time, Booking.human_attribute_name("start_time") %>
+    <%= f.number_field :start_time, class: "form-control", min: 0, max: 23 %>
+
+    <%= f.label :end_time, Booking.human_attribute_name("end_time") %>
+    <%= f.number_field :end_time, class: "form-control", min: 0, max: 23 %>
+
+    <%= f.label :name, Booking.human_attribute_name("name") %>
+    <%= f.text_field :name, class: "form-control" %>
+
+    <%= f.label :phone_number, Booking.human_attribute_name("phone_number") %>
+    <%= f.text_field :phone_number, class: "form-control" %>
+
+    <%= f.label :total_cost, Booking.human_attribute_name("total_cost") %>
+
+    <%= f.number_field :total_cost, class: "form-control", readonly: true %>
+
+    <%= hidden_field_tag "booking[football_pitch_id]", params[:football_pitch_id] %>
+
+    <%= hidden_field_tag "price_per_hour", @football_pitch.price_per_hour %>
+
+    <%= f.submit t("booking.create_booking"), class: "btn btn-primary" %>
+  <% end %>
+  </div>
+</div>
+<%= javascript_pack_tag "new_booking" %>

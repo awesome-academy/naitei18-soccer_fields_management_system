@@ -136,10 +136,14 @@ GEM
     ffi (1.15.5)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
+    glob (0.4.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    i18n-js (4.2.3)
+      glob (>= 0.4.0)
+      i18n
     image_processing (1.12.2)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
@@ -341,6 +345,7 @@ DEPENDENCIES
   config
   faker (>= 3.2.0)
   figaro
+  i18n-js
   image_processing (= 1.12.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)
