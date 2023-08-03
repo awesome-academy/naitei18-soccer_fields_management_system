@@ -8,4 +8,12 @@ class FootballPitchType < ApplicationRecord
   validates :length, :width,
             presence: true,
             numericality: {greater_than: Settings.comparison.number_0}
+
+  def self.ransackable_associations _auth_object = nil
+    %w(football_pitches)
+  end
+
+  def self.ransackable_attributes _auth_object = nil
+    %w(id name)
+  end
 end

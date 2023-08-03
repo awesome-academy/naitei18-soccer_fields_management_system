@@ -1,5 +1,10 @@
 vi:
   app_name: "Ứng dụng Soccer Fields Management"
+  ransack:
+    predicates:
+      cont: "chứa"
+      gteq: "lớn hơn hoặc bằng"
+      lteq: "nhỏ hơn hoặc bằng"
   activerecord:
     models:
       user: "Người dùng"

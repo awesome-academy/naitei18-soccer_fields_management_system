@@ -28,6 +28,14 @@ class FootballPitch < ApplicationRecord
                               size: Settings.digit.size_5)
             }
 
+  def self.ransackable_attributes _auth_object = nil
+    %w(football_pitch_type_id name price_per_hour)
+  end
+
+  def self.ransackable_associations _auth_object = nil
+    %w(football_pitch_type)
+  end
+
   def display_image index, image_size
     images[index].variant resize_to_limit: image_size
   end

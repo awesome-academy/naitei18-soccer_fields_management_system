@@ -1,6 +1,17 @@
 <% provide :title, t("booking.all_bookings") %>
 <div class="row">
   <aside class="col-md-4">
+  <h3>Search Booking</h2>
+    <%= search_form_for @q do |f| %>
+
+      <%= f.label :status_eq, Booking.human_attribute_name("status") %>
+      <%= f.collection_select :status_eq, Booking.statuses.to_a, :second, :first, prompt: true %>
+
+      <%= f.label :date_booking_eq, Booking.human_attribute_name("date_booking") %>
+      <%= f.date_field :date_booking_eq, class: "form-control" %>
+
+      <%= f.submit %>
+    <% end %>
   </aside>
   <div class="col-md-8">
     <% if @bookings.any? %>
