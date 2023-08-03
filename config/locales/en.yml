@@ -91,10 +91,14 @@ en:
     create_booking_success: "Create Booking Success"
     booking_not_found: "Booking not found!"
     canceled_football_pitch_fail: "Canceled fail"
+    delete_football_pitch_success: "Delete football pitch success"
+    delete_football_pitch_fail: Delete football pitch fail"
+    cannot_delete_football_pitch: "Can not delete football pitch"
   confirm:
     accepted_booking: "Are you sure want accepted the booking?"
     unaccepted_booking: "Are you sure want unaccepted the booking?"
     cancel_booking: "Are you sure want cancel the booking?"
+    delete_football_pitch: "Are you sure want delete the football pitch?"
   mail:
     account_activation: "Account activation"
     hi_message_html: "Hi, %{name}"
@@ -115,6 +119,7 @@ en:
     title: "Forgot Password"
   football_pitch:
     create_football_pitch: "Create football pitch"
+    delete_football_pitch: "Delete football pitch"
     info_football_pitch: "Information of football pitch"
     football_pitch_all: "All Football Pitches"
     edit_football_pitch_price: "Update football pitch price"
