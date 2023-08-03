@@ -19,6 +19,11 @@ Rails.application.routes.draw do
       end
     end
     resources :football_pitch_types
-    resources :bookings, only: %i(index show)
+    resources :bookings, only: %i(index show) do
+      member do
+        patch "update_status", to: "bookings#update_status"
+        patch "cancel", to: "bookings#cancel"
+      end
+    end
   end
 end

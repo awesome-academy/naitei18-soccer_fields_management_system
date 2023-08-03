@@ -1,0 +1,5 @@
+<%= t "mail.hi_message_html", name: @booking.name %>
+
+<%= t "mail.unaccepted_booking_html", football_pitch_name: @booking.football_pitch.name %>
+
+<%= booking_url(id: @booking.id) %>

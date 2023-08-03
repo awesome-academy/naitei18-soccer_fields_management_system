@@ -1,0 +1,8 @@
+<h1><%= t "app_name" %></h1>
+<p><%= t "mail.hi_message_html", name: @booking.name %></p>
+
+<p>
+  <%= t "mail.unaccepted_booking_html", football_pitch_name: @booking.football_pitch.name %>
+</p>
+
+<%= link_to t("mail.see_booking"), booking_url(id: @booking.id) %>

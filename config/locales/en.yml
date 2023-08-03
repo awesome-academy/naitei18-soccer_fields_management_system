@@ -90,11 +90,21 @@ en:
     update_football_price_price_fail: "Update football pitch price fail"
     create_booking_success: "Create Booking Success"
     booking_not_found: "Booking not found!"
+    canceled_football_pitch_fail: "Canceled fail"
+  confirm:
+    accepted_booking: "Are you sure want accepted the booking?"
+    unaccepted_booking: "Are you sure want unaccepted the booking?"
+    cancel_booking: "Are you sure want cancel the booking?"
   mail:
     account_activation: "Account activation"
     hi_message_html: "Hi, %{name}"
     welcome_sentence: "Welcome to the Sample App! Click on the link below to activate your account:"
     activate: "Activate"
+    accepted_booking_html: "We are happy to announce that your booking for %{football_pitch_name} has been accepted"
+    unaccepted_booking_html: "We are very sad to announce that your booking for %{football_pitch_name} has been unaccepted"
+    see_booking: "View detailed information on the status of the booking"
+    accepted_booking: "Accepted Booking"
+    unaccepted_booking: "Unaccepted Booking"
   reset_password:
     title: "Password reset"
     click_link: "To reset your password click the link below:"
@@ -116,11 +126,14 @@ en:
     all_bookings: "All bookings"
     info_booking: "Information of booking"
     info_customer: "Information of customer"
+    accepted: "Accepted"
+    unaccepted: "Unaccepted"
+    cancel: "Cancel"
     status:
       pending: "Pending"
       accepted:  "Accept"
-      not_accepted: "Reject"
-      cancalled: "Cancel"
+      unaccepted: "Unaccepted"
+      canceled: "Cancel"
   button:
    edit: "Edit"
    delete: "Delete"

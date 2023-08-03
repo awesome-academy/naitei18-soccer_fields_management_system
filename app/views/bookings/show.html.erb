@@ -16,7 +16,7 @@
       <div class="info">
           <span><b><%= Booking.human_attribute_name("total_cost") %></b>: <%= @booking.total_cost %>đ</span>
       </div>
-      <div class="info">
+      <div class="info" id="status">
           <span><b><%= Booking.human_attribute_name("status") %></b>: <%= t "booking.status.#{@booking.status}" %></span>
       </div>
       <div class="info">
@@ -35,5 +35,23 @@
           <span><b><%= Booking.human_attribute_name("phone_number") %></b>: <%= @booking.phone_number %></span>
       </div>
     </div>
+  </div>
+  <div class="col-md-2 btn-group">
+    <% if current_user.admin? && @booking.pending? %>
+      <%= form_for(@booking, remote: true, url: update_status_booking_path, method: :patch) do |f| %>
+        <%= hidden_field_tag :status, :accepted %>
+        <%= f.submit t("booking.accepted"), class: "btn btn-primary", data: {confirm: t("confirm.accepted_booking")} %>
+      <% end %>
+      <%= form_for(@booking, remote: true, url: update_status_booking_path, method: :patch) do |f| %>
+        <%= hidden_field_tag :status, :unaccepted %>
+        <%= f.submit t("booking.unaccepted"), class: "btn btn-danger", data: {confirm: t("confirm.unaccepted_booking")} %>
+      <% end %>
+    <% end %>
+
+    <% if current_user.user? && @booking.pending? %>
+      <%= form_for(@booking, remote: true, url: cancel_booking_path, method: :patch) do |f| %>
+        <%= f.submit t("booking.cancel"), class: "btn btn-danger", data: {confirm: t("confirm.cancel_booking")} %>
+      <% end %>
+    <% end %>
   </div>
 </div>
