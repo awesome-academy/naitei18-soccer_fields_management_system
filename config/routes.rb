@@ -25,5 +25,6 @@ Rails.application.routes.draw do
         patch "cancel", to: "bookings#cancel"
       end
     end
+    resources :follows, only: %i(create destroy)
   end
 end

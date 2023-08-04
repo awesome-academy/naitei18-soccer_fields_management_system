@@ -99,6 +99,7 @@ en:
     delete_football_pitch_success: "Delete football pitch success"
     delete_football_pitch_fail: Delete football pitch fail"
     cannot_delete_football_pitch: "Can not delete football pitch"
+    follow_not_found: "Can not find follow"
   confirm:
     accepted_booking: "Are you sure want accepted the booking?"
     unaccepted_booking: "Are you sure want unaccepted the booking?"
@@ -144,6 +145,9 @@ en:
       accepted:  "Accept"
       unaccepted: "Unaccepted"
       canceled: "Cancel"
+  follow:
+    follow: "Follow"
+    unfollow: "Unfollow"
   button:
    edit: "Edit"
    delete: "Delete"

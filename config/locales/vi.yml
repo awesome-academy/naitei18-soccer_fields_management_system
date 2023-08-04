@@ -97,6 +97,7 @@ vi:
     delete_football_pitch_success: "Xóa sân bóng thành công"
     delete_football_pitch_fail: "Xóa sân bóng thất bại"
     cannot_delete_football_pitch: "Không thể xóa sân bóng"
+    follow_not_found: "Không tìm thấy theo dõi"
   confirm:
     accepted_booking: "Bạn có chắc muốn chấp nhận đơn đặt sân không?"
     unaccepted_booking: "Bạn có chắc muốn từ chối đơn đặt sân không?"
@@ -142,6 +143,9 @@ vi:
       accepted:  "Được chấp nhận"
       unaccepted: "Bị từ chối"
       canceled: "Đã hủy"
+  follow:
+    follow: "Theo dõi"
+    unfollow: "Hủy theo dõi"
   button:
    edit: "Chỉnh sửa"
    delete: "Xóa"
