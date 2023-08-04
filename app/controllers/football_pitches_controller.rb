@@ -18,6 +18,7 @@ class FootballPitchesController < ApplicationController
     @football_pitch = FootballPitch.includes(:football_pitch_type)
                                    .find_by id: params[:id]
 
+    @pagy, @reviews = pagy @football_pitch.reviews.includes(:user)
     return if @football_pitch
 
     flash[:danger] = t "flash.football_pitch_not_found"

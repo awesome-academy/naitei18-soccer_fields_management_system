@@ -1,0 +1,13 @@
+<%= form_for(@review ||= Review.new, remote: true, url: football_pitch_reviews_path(@football_pitch.id)) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :rating, Review.human_attribute_name("rating") %>
+  <%= f.number_field :rating, min:1, max: 5 %>
+
+  <%= f.label :comment, Review.human_attribute_name("comment") %>
+  <%= f.text_field :comment, class: "form-control" %>
+
+  <%= hidden_field_tag "review[football_pitch_id]", params[:id] %>
+
+  <%= f.submit t("button.submit"), class: "btn btn-primary" %>
+<% end %>

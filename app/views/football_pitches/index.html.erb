@@ -1,7 +1,7 @@
 <% provide :title, t("football_pitch.football_pitch_all") %>
 <div class="row">
   <aside class="col-md-4">
-  <h3>Search Football Pitch</h2>
+  <h3><%= t "football_pitch.search_football_pitch" %></h2>
     <%= search_form_for @q do |f| %>
 
       <%= f.label :name_cont, FootballPitch.human_attribute_name("name") %>

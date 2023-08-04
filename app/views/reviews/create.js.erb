@@ -1,0 +1,17 @@
+<% if @review.id %>
+{
+  if ($(".reviews")[0])
+  {
+    $("<%= j render @review %>").prependTo(".reviews");
+  }
+  else
+  {
+    $("#reviews_list").append('<ol class="reviews"><%= j render "reviews/review", review: @review %></ol>');
+  }
+}
+<% else %>
+{
+  $("#new_review").html('<%= j render "reviews/create_form" %>');
+}
+<% end %>
+$("#new_review")[0].reset();

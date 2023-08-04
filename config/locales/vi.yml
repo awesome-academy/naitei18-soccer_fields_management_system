@@ -11,6 +11,7 @@ vi:
       football_pitch: "Sân bóng đá"
       football_pitch_type: "Loại sân bóng đá"
       booking: "Đặt sân"
+      review: "Đánh giá"
     attributes:
       user:
         name: "Tên"
@@ -37,6 +38,9 @@ vi:
         total_cost: "Tổng chi phí"
         status: "Trạng thái"
         created_at: "Ngày tạo"
+      review:
+        rating: "Xếp hạng"
+        comment: "Bình luận"
   header:
     home: "Trang chủ"
     sign_up: "Đăng ký"
@@ -127,6 +131,7 @@ vi:
     info_football_pitch: "Thông tin về sân bóng"
     football_pitch_all: "Tất cả sân bóng đá"
     edit_football_pitch_price: "Chỉnh sửa tiền thuê sân bóng"
+    search_football_pitch: "Tìm kiếm sân bóng"
   football_pitch_type:
     create_football_pitch_type: "Tạo loại sân bóng đá mới"
     info_football_pitch_type: "Thông tin về loại sân bóng"
@@ -138,6 +143,7 @@ vi:
     accepted: "Chấp nhận"
     unaccepted: "Từ chối"
     cancel: "Hủy bỏ"
+    search_booking: "Tìm kiếm đơn đặt sân"
     status:
       pending: "Chờ duyệt"
       accepted:  "Được chấp nhận"
@@ -146,6 +152,10 @@ vi:
   follow:
     follow: "Theo dõi"
     unfollow: "Hủy theo dõi"
+  review:
+    posted_ago_html: "Được đăng %{time} trước"
+    all_reviews: "Tất cả đánh giá"
+    create_review: "Tạo đánh giá"
   button:
    edit: "Chỉnh sửa"
    delete: "Xóa"

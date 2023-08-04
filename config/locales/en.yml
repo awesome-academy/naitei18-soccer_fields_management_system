@@ -11,6 +11,7 @@ en:
       football_pitch: "Football pitch"
       football_pitch_type: "Football pitch type"
       booking: "Booking"
+      review: "Review"
     attributes:
       user:
         name: "Name"
@@ -37,6 +38,9 @@ en:
         total_cost: "Total cost"
         status: "Status"
         created_at: "Created at"
+      review:
+        rating: "Rating"
+        comment: "Comment"
   header:
     home: "Home"
     sign_up: "Sign up"
@@ -129,6 +133,7 @@ en:
     info_football_pitch: "Information of football pitch"
     football_pitch_all: "All Football Pitches"
     edit_football_pitch_price: "Update football pitch price"
+    search_football_pitch: "Search football pitch"
   football_pitch_type:
     create_football_pitch_type: "Create football pitch type"
     info_football_pitch_type: "Information of football pitch type"
@@ -140,6 +145,7 @@ en:
     accepted: "Accepted"
     unaccepted: "Unaccepted"
     cancel: "Cancel"
+    search_booking: "Search booking"
     status:
       pending: "Pending"
       accepted:  "Accept"
@@ -148,6 +154,10 @@ en:
   follow:
     follow: "Follow"
     unfollow: "Unfollow"
+  review:
+    posted_ago_html: "Posted %{time} ago."
+    all_reviews: "All reviews"
+    create_review: "Create review"
   button:
    edit: "Edit"
    delete: "Delete"
