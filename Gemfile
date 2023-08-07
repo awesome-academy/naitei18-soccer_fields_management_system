@@ -26,6 +26,7 @@ gem "turbolinks", "~> 5"
 gem "simplecov-rcov"
 gem "simplecov"
 gem "factory_bot_rails"
+gem "rails-controller-testing"
 gem "webpacker", "~> 5.0"
 
 group :development, :test do
