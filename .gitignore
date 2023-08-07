@@ -6,7 +6,6 @@ capybara-*.html
 /db/*.sqlite3-[0-9]*
 /public/system
 /coverage/
-/spec/tmp
 *.orig
 rerun.txt
 pickle-email-*.html
@@ -75,7 +74,6 @@ yarn-debug.log*
 .browserslistrc
 config/credentials.yml.enc
 /test
-/spec
 /storage
 
 config/settings.local.yml
