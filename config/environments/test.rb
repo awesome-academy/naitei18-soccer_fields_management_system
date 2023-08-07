@@ -69,4 +69,6 @@ Rails.application.configure do
     port: ENV["mail_port"],
     authentication: :cram_md5,
   }
+
+  config.action_mailer.delivery_method = :test
 end
