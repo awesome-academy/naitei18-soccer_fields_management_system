@@ -21,3 +21,9 @@ RSpec.shared_examples "show flash user not found" do
     expect(flash[:danger]).to eq(I18n.t "flash.user_not_found")
   end
 end
+
+RSpec.shared_examples "redirect to user page" do
+  it "redirect to user page" do
+    expect(response).to redirect_to user
+  end
+end
