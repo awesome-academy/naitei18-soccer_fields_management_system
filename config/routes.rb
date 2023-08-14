@@ -27,5 +27,8 @@ Rails.application.routes.draw do
       end
     end
     resources :follows, only: %i(create destroy)
+
+    mount API::Base, at: "/"
+    mount GrapeSwaggerRails::Engine, at: "/documentation"
   end
 end
