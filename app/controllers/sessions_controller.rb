@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
       redirect_back_or user
     else
       flash[:warning] = t "flash.not_activated"
-      redirect_to root_path
+      redirect_to root_url
     end
   end
 end
