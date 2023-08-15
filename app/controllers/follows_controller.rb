@@ -30,6 +30,6 @@ class FollowsController < ApplicationController
     return if @follow
 
     flash[:danger] = t "flash.follow_not_found"
-    redirect_to root_path
+    redirect_to root_url
   end
 end

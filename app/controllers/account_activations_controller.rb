@@ -9,7 +9,7 @@ class AccountActivationsController < ApplicationController
       redirect_to @user
     else
       flash[:danger] = t "flash.mail_activated_fail"
-      redirect_to root_path
+      redirect_to root_url
     end
   end
 
