@@ -4,6 +4,7 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 ruby "3.0.2"
 
 gem "active_storage_validations", "1.0.4"
+gem "airborne", "~> 0.2.7"
 gem "bcrypt", "3.1.13"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "bootstrap-sass", "3.4.1"
@@ -21,6 +22,7 @@ gem "grape-swagger-rails"
 gem "i18n-js"
 gem "image_processing", "1.12.2"
 gem "jbuilder", "~> 2.7"
+gem "jwt"
 gem "mini_magick"
 gem "mysql2", "~> 0.5"
 gem "pagy"

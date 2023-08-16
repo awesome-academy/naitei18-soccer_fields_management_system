@@ -23,5 +23,6 @@ module Naitei18SoccerFieldsManagementSystem
     config.i18n.default_locale = :en
     config.action_view.embed_authenticity_token_in_remote_forms = true
     config.action_dispatch.rescue_responses.merge!("CanCan::AccessDenied" => :unauthorized)
+    config.autoload_paths << Rails.root.join('lib')
   end
 end
