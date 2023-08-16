@@ -5,7 +5,8 @@ module API
 
       helpers do
         def represent_user_with_token user
-          present jwt_token: Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+          present jwt_token: Authentication.encode({user_id: user.id,
+                                                    exp: Time.now.to_i + 4 * 3600})
         end
 
         def handle_activation user

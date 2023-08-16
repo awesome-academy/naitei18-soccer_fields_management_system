@@ -2,6 +2,7 @@ module API
   module V1
     module Defaults
       extend ActiveSupport::Concern
+      include SessionsHelper
 
       included do
         prefix "api"
@@ -22,26 +23,24 @@ module API
           end
 
           def authenticate_user!
-            token = request.headers["Jwt-Token"]
+            token = request.headers["Authorization"]&.split(" ")&.[](1)
             user_id = Authentication.decode(token)["user_id"] if token
             @current_user = User.find_by id: user_id
             return if @current_user
 
-            api_error!("You need to log in to use the app", "failure", 401,
-                       {})
+            error!({message: "You need to log in to use the app"}, 401)
           end
         end
 
-        rescue_from ActiveRecord::RecordNotFound do |e|
-          error_response(message: e.message, status: 404)
+        rescue_from JWT::ExpiredSignature, JWT::VerificationError do |e|
+          error!("Your session has ended", 401)
         end
 
         rescue_from ActiveRecord::RecordInvalid do |e|
-          error_response(message: e.message, status: 422)
-        end
-
-        rescue_from JWT::ExpiredSignature
-          error!({message: "Your session has ended"}, 401)
+          message = e.record.errors.messages.map do |attr, msg|
+            "#{attr} #{msg.join(' and ')}"
+          end
+          error!({message: message.join(", ")}, 422)
         end
       end
     end
