@@ -30,6 +30,11 @@ module API
 
             error!({message: "You need to log in to use the app"}, 401)
           end
+
+          def represent_user_with_token user
+            present jwt_token: Authentication.encode({user_id: user.id,
+                                                      exp: Time.now.to_i + 4 * 3600})
+          end
         end
 
         rescue_from JWT::ExpiredSignature, JWT::VerificationError do |e|
