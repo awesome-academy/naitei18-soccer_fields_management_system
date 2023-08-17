@@ -39,3 +39,23 @@ RSpec.shared_examples "should return the correct message" do |message|
     expect_json(message: message)
   end
 end
+
+RSpec.shared_examples "fail when user not login" do
+  include_examples "should return the correct message", "You need to log in to use the app"
+
+  include_examples "should return the correct status code", 401
+end
+
+
+RSpec.shared_examples "fail when user not found" do
+  include_examples "should return the correct message", "User not found"
+
+  include_examples "should return the correct status code", 404
+end
+
+
+RSpec.shared_examples "fail when user can not access" do
+  include_examples "should return the correct message", "Access denied"
+
+  include_examples "should return the correct status code", 403
+end
