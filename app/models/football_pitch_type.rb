@@ -9,6 +9,7 @@ class FootballPitchType < ApplicationRecord
             presence: true,
             numericality: {greater_than: Settings.comparison.number_0}
 
+  scope :newest, ->{order created_at: :desc}
   def self.ransackable_associations _auth_object = nil
     %w(football_pitches)
   end

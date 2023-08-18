@@ -58,12 +58,13 @@ module API
           patch ":id" do
             load_football_pitch
             if @football_pitch.update permitted_params[:football_pitch]
-              present @football_pitch, with: API::Entities::FootballPitch
-            else
-              error!(
-                {message: "Update price per hour of football pitch failure"}, 422
-              )
+              return present @football_pitch,
+                             with: API::Entities::FootballPitch
             end
+
+            error!(
+              {message: "Update price per hour of football pitch failure"}, 422
+            )
           end
 
           desc "Delete a football pitch"

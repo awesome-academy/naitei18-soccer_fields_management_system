@@ -5,6 +5,7 @@ module API
         include API::V1::Defaults
         namespace :admin do
           mount FootballPitches
+          mount FootballPitchTypes
         end
       end
     end
