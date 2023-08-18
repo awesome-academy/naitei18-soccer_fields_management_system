@@ -1,8 +1,6 @@
 module API
   module Entities
     class Booking < Grape::Entity
-      include API::V1::Helpers::FormatHelper
-
       expose :id
       expose :name
       expose :phone_number

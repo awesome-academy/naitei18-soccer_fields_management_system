@@ -104,6 +104,7 @@ en:
     delete_football_pitch_fail: Delete football pitch fail"
     cannot_delete_football_pitch: "Can not delete football pitch"
     follow_not_found: "Can not find follow"
+    can_not_create_review: "You can not create review"
   confirm:
     accepted_booking: "Are you sure want accepted the booking?"
     unaccepted_booking: "Are you sure want unaccepted the booking?"

@@ -8,6 +8,7 @@ module API
       mount V1::FootballPitchTypes
       mount V1::Follows
       mount V1::Bookings
+      mount V1::Reviews
       mount V1::Admin::Base
       add_swagger_documentation(
         API_version: "v1",
