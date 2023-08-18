@@ -53,6 +53,11 @@ RSpec.shared_examples "fail when user not found" do
   include_examples "should return the correct status code", 404
 end
 
+RSpec.shared_examples "fail when football pitch not found" do
+  include_examples "should return the correct message", "Football pitch not found"
+
+  include_examples "should return the correct status code", 404
+end
 
 RSpec.shared_examples "fail when user can not access" do
   include_examples "should return the correct message", "Access denied"

@@ -9,8 +9,6 @@ module API
         version "v1", using: :path
         default_format :json
         format :json
-        formatter :json,
-                  Grape::Formatter::ActiveModelSerializers
 
         helpers do
           def permitted_params
@@ -35,10 +33,20 @@ module API
             present jwt_token: Authentication.encode({user_id: user.id,
                                                       exp: Time.now.to_i + 4 * 3600})
           end
+
+          def require_admin
+            return if @current_user.admin?
+
+            error!({message: "You are not authorized to do this"}, 403)
+          end
         end
 
-        rescue_from JWT::ExpiredSignature, JWT::VerificationError do |e|
-          error!("Your session has ended", 401)
+        rescue_from JWT::ExpiredSignature, JWT::VerificationError do
+          error!({message: "Your session has ended"}, 401)
+        end
+
+        rescue_from Grape::Exceptions::ValidationErrors do |e|
+          error!({messages: e.full_messages}, 400)
         end
 
         rescue_from ActiveRecord::RecordInvalid do |e|
