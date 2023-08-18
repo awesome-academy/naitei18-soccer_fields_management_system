@@ -44,6 +44,17 @@ RSpec.describe API::V1::Users, type: :request do
 
       include_examples "fail when user can not access"
     end
+
+    context "fail when session has ended" do
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        Timecop.freeze(5.hours.after) do
+          get "/api/v1/users/#{user.id}", headers: { "Authorization" => "Bearer #{token_new}" }
+        end
+      end
+
+      include_examples "fail when session has ended"
+    end
   end
 
   describe "POST /api/v1/users/signup" do

@@ -6,7 +6,11 @@ RSpec.describe API::V1::FootballPitches, type: :request do
   describe "GET index" do
     before do
       football_pitches = FactoryBot.create_list(:football_pitch, 30)
-      get "/api/v1/football_pitches"
+      get "/api/v1/football_pitches", params: {per_page: 10, page: 1}
+    end
+
+    it "should return correct per_page" do
+      expect(json_body.length).to eq(10)
     end
 
     include_examples "should return the correct status code", 200

@@ -29,6 +29,17 @@ RSpec.describe API::V1::Follows, type: :request do
 
       include_examples "fail when football pitch not found"
     end
+
+    context "fail when session has ended" do
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        Timecop.freeze(5.hours.after) do
+          post "/api/v1/follows", params: {football_pitch_id: football_pitch.id}, headers: { "Authorization" => "Bearer #{token_new}" }
+        end
+      end
+
+      include_examples "fail when session has ended"
+    end
   end
 
   describe "DELETE destroy" do
@@ -56,6 +67,19 @@ RSpec.describe API::V1::Follows, type: :request do
       end
 
       include_examples "fail when follow not found"
+    end
+
+    context "fail when session has ended" do
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        user.follow football_pitch
+        follow = user.follows.find_by(football_pitch_id: football_pitch.id)
+        Timecop.freeze(5.hours.after) do
+          delete "/api/v1/follows/#{follow.id}", headers: { "Authorization" => "Bearer #{token_new}" }
+        end
+      end
+
+      include_examples "fail when session has ended"
     end
   end
 end

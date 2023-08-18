@@ -20,7 +20,8 @@ RSpec.describe ReviewsController, type: :controller do
     end
 
     context "fail when can not create review" do
-      let!(:football_pitch) {create :football_pitch}
+      let(:football_pitch) {create :football_pitch}
+      let(:booking) {create(:booking, user: user, football_pitch: football_pitch)}
       let(:review_params) {attributes_for(:review, user: user, football_pitch_id: football_pitch.id)}
       before do
         log_in user
@@ -49,8 +50,6 @@ RSpec.describe ReviewsController, type: :controller do
     end
 
     context "fail when football pitch not found" do
-      let(:football_pitch) {create :football_pitch}
-      let(:booking) {create(:booking, user: user, football_pitch: football_pitch)}
       let(:review_params) {attributes_for(:review)}
       before do
         log_in user
