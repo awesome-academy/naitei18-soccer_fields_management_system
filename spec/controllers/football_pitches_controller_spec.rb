@@ -202,7 +202,7 @@ RSpec.describe FootballPitchesController, type: :controller do
         allow_any_instance_of(FootballPitch).to receive(:destroy).and_return(false)
         delete :destroy, params: {id: football_pitch.id}
       end
-      it "should not delete the question" do
+      it "should not delete the football pitch" do
         expect(FootballPitch.where(id: football_pitch.id)).to exist
       end
 
@@ -219,7 +219,7 @@ RSpec.describe FootballPitchesController, type: :controller do
         log_in user
         delete :destroy, params: {id: football_pitch.id}
       end
-      it "should not delete the question" do
+      it "should not delete the football pitch" do
         expect(FootballPitch.where(id: football_pitch.id)).to exist
       end
 

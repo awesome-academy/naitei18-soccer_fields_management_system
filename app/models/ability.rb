@@ -9,6 +9,7 @@ class Ability
     return if user.blank?
 
     can :create, Booking
+    can :manage, Follow
     can [:read, :cancel], Booking, user: user
     can :time_booked_booking, FootballPitch
 
