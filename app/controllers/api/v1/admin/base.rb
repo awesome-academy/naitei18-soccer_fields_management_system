@@ -6,6 +6,7 @@ module API
         namespace :admin do
           mount FootballPitches
           mount FootballPitchTypes
+          mount Bookings
         end
       end
     end
