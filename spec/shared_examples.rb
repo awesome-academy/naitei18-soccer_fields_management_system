@@ -65,6 +65,12 @@ RSpec.shared_examples "fail when football pitch type not found" do
   include_examples "should return the correct status code", 404
 end
 
+RSpec.shared_examples "fail when follow not found" do
+  include_examples "should return the correct message", "Follow not found"
+
+  include_examples "should return the correct status code", 404
+end
+
 RSpec.shared_examples "fail when user can not access" do
   include_examples "should return the correct message", "Access denied"
 
