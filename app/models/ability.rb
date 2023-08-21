@@ -15,6 +15,7 @@ class Ability
     return unless user.admin?
 
     can :manage, FootballPitch
+    can :manage, FootballPitchType
     can [:read, :update_status], Booking
   end
 end

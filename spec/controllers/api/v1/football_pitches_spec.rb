@@ -10,11 +10,6 @@ RSpec.describe API::V1::FootballPitches, type: :request do
     end
 
     include_examples "should return the correct status code", 200
-
-    # it "should have 15 football pitch if total > 15" do
-    #   FactoryBot.create_list(:football_pitch, 30)
-    #   expect([:football_pitches].length).to eq(15)
-    # end
   end
 
   describe "GET show" do
