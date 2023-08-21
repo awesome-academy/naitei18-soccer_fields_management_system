@@ -1,4 +1,4 @@
-Create a main sample user.
+#Create a main sample user.
 User.create!(
   name: "Example User",
   email: "example@gmail.com",
@@ -28,8 +28,8 @@ end
 
 5.times do |n|
   name = "Sân bóng loại #{n}"
-  length = n * 15
-  width = n * 10
+  length = n * 15 + 100
+  width = n * 10 + 100
   FootballPitchType.create!(
     name: name,
     length: length,
