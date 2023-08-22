@@ -64,6 +64,22 @@ RSpec.describe BookingsController, type: :controller do
 
       it_behaves_like "redirect to home page"
     end
+
+    context "fail when can not access" do
+      let(:user) {create(:user)}
+      let(:user_other) {create(:user)}
+      let(:booking) {create(:booking, user: user)}
+      before do
+        log_in user_other
+        get :show, params: {id: booking.id}
+      end
+
+      it "show flash booking not found" do
+        expect(flash[:danger]).to eq(I18n.t "flash.not_authorized")
+      end
+
+      it_behaves_like "redirect to home page"
+    end
   end
 
   describe "POST create" do
@@ -82,6 +98,56 @@ RSpec.describe BookingsController, type: :controller do
 
       it "show flash create booking pitch success" do
         expect(flash[:success]).to eq(I18n.t "flash.create_booking_success")
+      end
+    end
+
+    context "fail when end time not be 1 hour greater than start time" do
+      let(:booking_params) {attributes_for(:booking, football_pitch_id: football_pitch.id, start_time: "10:00", end_time: "10:30")}
+      before do
+        log_in user
+        post :create, params: {football_pitch_id: football_pitch.id, booking: booking_params}
+      end
+
+      it "have errors" do
+        expect(assigns(:booking).errors.count).not_to eq(0)
+      end
+
+      it "render new page" do
+        expect(response).to render_template(:new)
+      end
+    end
+
+    context "fail when time booking include time" do
+      let!(:booking) {create :booking,football_pitch: football_pitch, date_booking: "01-01-2024", start_time: "10:00", end_time: "11:00"}
+      let(:booking_params) {attributes_for(:booking, football_pitch_id: football_pitch.id, date_booking: "01-01-2024", start_time: "10:00", end_time: "11:00")}
+      before do
+        log_in user
+        post :create, params: {football_pitch_id: football_pitch.id, booking: booking_params}
+      end
+
+      it "have errors" do
+        expect(assigns(:booking).errors.count).not_to eq(0)
+      end
+
+      it "render new page" do
+        expect(response).to render_template(:new)
+      end
+    end
+
+    context "fail when time booking coincide time" do
+      let!(:booking) {create :booking,football_pitch: football_pitch, date_booking: "01-01-2024", start_time: "10:00", end_time: "12:00"}
+      let(:booking_params) {attributes_for(:booking, football_pitch_id: football_pitch.id, date_booking: "01-01-2024", start_time: "10:30", end_time: "11:30")}
+      before do
+        log_in user
+        post :create, params: {football_pitch_id: football_pitch.id, booking: booking_params}
+      end
+
+      it "have errors" do
+        expect(assigns(:booking).errors.count).not_to eq(0)
+      end
+
+      it "render new page" do
+        expect(response).to render_template(:new)
       end
     end
 

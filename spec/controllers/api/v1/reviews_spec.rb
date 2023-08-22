@@ -57,5 +57,19 @@ RSpec.describe API::V1::Reviews, type: :request do
 
       include_examples "fail when football pitch not found"
     end
+
+    context "fail when session has ended" do
+      let!(:football_pitch) {create :football_pitch}
+      let!(:booking) {create(:booking, user: user, football_pitch: football_pitch)}
+      let(:review_params) {attributes_for(:review, football_pitch_id: football_pitch.id)}
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        Timecop.freeze(5.hours.after) do
+          post "/api/v1/football_pitches/#{football_pitch.id}/reviews", params: {review: review_params}, headers: { "Authorization" => "Bearer #{token_new}" }
+        end
+      end
+
+      include_examples "fail when session has ended"
+    end
   end
 end

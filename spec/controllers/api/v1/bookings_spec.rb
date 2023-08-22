@@ -5,13 +5,30 @@ require "airborne"
 RSpec.describe API::V1::Bookings, type: :request do
   describe "GET index" do
     let(:user) {create :user}
-    before do
-      FactoryBot.create_list(:booking, 30)
-      token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
-      get "/api/v1/bookings", headers: { "Authorization" => "Bearer #{token_new}" }
+    context "success get index" do
+      before do
+        FactoryBot.create_list(:booking, 30)
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        get "/api/v1/bookings", params: {per_page: 10, page: 1} ,headers: { "Authorization" => "Bearer #{token_new}" }
+      end
+      it "returns http success" do
+        expect(response).to have_http_status(:success)
+      end
+
+      it "should return correct per_page" do
+        expect(json_body.length).to eq(10)
+      end
     end
-    it "returns http success" do
-      expect(response).to have_http_status(:success)
+
+    context "fail when session has ended" do
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        Timecop.freeze(5.hours.after) do
+          get "/api/v1/bookings", headers: { "Authorization" => "Bearer #{token_new}" }
+        end
+      end
+
+      include_examples "fail when session has ended"
     end
   end
 
@@ -38,6 +55,17 @@ RSpec.describe API::V1::Bookings, type: :request do
       end
 
       include_examples "fail when booking not found"
+    end
+
+    context "fail when session has ended" do
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        Timecop.freeze(5.hours.after) do
+          get "/api/v1/bookings/#{booking.id}", headers: { "Authorization" => "Bearer #{token_new}" }
+        end
+      end
+
+      include_examples "fail when session has ended"
     end
   end
 
@@ -77,6 +105,17 @@ RSpec.describe API::V1::Bookings, type: :request do
       include_examples "should return the correct status code", 422
 
       include_examples "should return the correct message", "Cancel the booking failure"
+    end
+
+    context "fail when session has ended" do
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        Timecop.freeze(5.hours.after) do
+          patch "/api/v1/bookings/#{booking.id}/cancel", headers: { "Authorization" => "Bearer #{token_new}" }
+        end
+      end
+
+      include_examples "fail when session has ended"
     end
   end
 end

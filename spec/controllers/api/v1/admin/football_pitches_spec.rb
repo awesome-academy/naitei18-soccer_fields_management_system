@@ -25,6 +25,31 @@ RSpec.describe API::V1::Admin::FootballPitches, type: :request do
 
       include_examples "should return the correct status code", 400
     end
+
+    context "fail when session has ended" do
+      let(:football_pitch_type) {create(:football_pitch_type)}
+      let(:football_pitch_params) {attributes_for(:football_pitch, football_pitch_type_id: football_pitch_type.id)}
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        Timecop.freeze(5.hours.after) do
+          post "/api/v1/admin/football_pitches", params: {football_pitch: football_pitch_params}, headers: { "Authorization" => "Bearer #{token_new}" }
+        end
+      end
+
+      include_examples "fail when session has ended"
+    end
+
+    context "fail when user is not admin" do
+      let(:user) {create :user}
+      let(:football_pitch_type) {create(:football_pitch_type)}
+      let(:football_pitch_params) {attributes_for(:football_pitch, football_pitch_type_id: football_pitch_type.id)}
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        post "/api/v1/admin/football_pitches", params: {football_pitch: football_pitch_params}, headers: { "Authorization" => "Bearer #{token_new}" }
+      end
+
+      include_examples "fail when user is not admin"
+    end
   end
 
   describe "PATCH update" do
@@ -61,6 +86,27 @@ RSpec.describe API::V1::Admin::FootballPitches, type: :request do
       end
 
       include_examples "fail when football pitch not found"
+    end
+
+    context "fail when session has ended" do
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        Timecop.freeze(5.hours.after) do
+          patch "/api/v1/admin/football_pitches/#{football_pitch.id}", params: {football_pitch: {price_per_hour: 200000}}, headers: { "Authorization" => "Bearer #{token_new}" }
+        end
+      end
+
+      include_examples "fail when session has ended"
+    end
+
+    context "fail when user is not admin" do
+      let(:user) {create :user}
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        patch "/api/v1/admin/football_pitches/#{football_pitch.id}", params: {football_pitch: {price_per_hour: 200000}}, headers: { "Authorization" => "Bearer #{token_new}" }
+      end
+
+      include_examples "fail when user is not admin"
     end
   end
 
@@ -119,6 +165,27 @@ RSpec.describe API::V1::Admin::FootballPitches, type: :request do
       include_examples "should return the correct message", "Can not delete football pitch"
 
       include_examples "should return the correct status code", 405
+    end
+
+    context "fail when session has ended" do
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        Timecop.freeze(5.hours.after) do
+          delete "/api/v1/admin/football_pitches/#{football_pitch.id}", headers: { "Authorization" => "Bearer #{token_new}" }
+        end
+      end
+
+      include_examples "fail when session has ended"
+    end
+
+    context "fail when user is not admin" do
+      let(:user) {create :user}
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        delete "/api/v1/admin/football_pitches/#{football_pitch.id}", headers: { "Authorization" => "Bearer #{token_new}" }
+      end
+
+      include_examples "fail when user is not admin"
     end
   end
 end

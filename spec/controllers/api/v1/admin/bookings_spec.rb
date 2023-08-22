@@ -38,5 +38,26 @@ RSpec.describe API::V1::Admin::Bookings, type: :request do
 
       include_examples "fail when booking not found"
     end
+
+    context "fail when session has ended" do
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        Timecop.freeze(5.hours.after) do
+          patch "/api/v1/admin/bookings/#{booking.id}/update_status", params: {status: :accepted}, headers: { "Authorization" => "Bearer #{token_new}" }
+        end
+      end
+
+      include_examples "fail when session has ended"
+    end
+
+    context "fail when user is not admin" do
+      let(:user) {create :user}
+      before do
+        token_new = Authentication.encode({user_id: user.id, exp: Time.now.to_i + 4 * 3600})
+        patch "/api/v1/admin/bookings/#{booking.id}/update_status", params: {status: :accepted}, headers: { "Authorization" => "Bearer #{token_new}" }
+      end
+
+      include_examples "fail when user is not admin"
+    end
   end
 end

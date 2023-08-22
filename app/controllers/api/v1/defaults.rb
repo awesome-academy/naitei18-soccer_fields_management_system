@@ -16,10 +16,6 @@ module API
                                            include_missing: false)
           end
 
-          def logger
-            Rails.logger
-          end
-
           def authenticate_user!
             token = request.headers["Authorization"]&.split(" ")&.[](1)
             user_id = Authentication.decode(token)["user_id"] if token

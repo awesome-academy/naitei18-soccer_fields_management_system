@@ -7,7 +7,7 @@ RSpec.describe SessionsController, type: :controller do
     context "login success" do
       let(:user) {create(:user, :activated)}
       before do
-        post :create, params: {session: {email: user.email, password: user.password}}
+        post :create, params: {session: {email: user.email, password: user.password, remember_me: "1"}}
       end
 
       it "should update session with user_id" do
@@ -50,7 +50,7 @@ RSpec.describe SessionsController, type: :controller do
     context "logout with logged in" do
       let(:user) {create(:user)}
       before do
-        post :create, params: {session: {email: user.email, password: user.password}}
+        log_in user
         delete :destroy
       end
 

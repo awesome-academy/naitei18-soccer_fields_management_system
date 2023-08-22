@@ -77,6 +77,18 @@ RSpec.shared_examples "fail when booking not found" do
   include_examples "should return the correct status code", 404
 end
 
+RSpec.shared_examples "fail when user is not admin" do
+  include_examples "should return the correct message", "You are not authorized to do this"
+
+  include_examples "should return the correct status code", 403
+end
+
+RSpec.shared_examples "fail when session has ended" do
+  include_examples "should return the correct message", "Your session has ended"
+
+  include_examples "should return the correct status code", 401
+end
+
 RSpec.shared_examples "fail when user can not access" do
   include_examples "should return the correct message", "Access denied"
 

@@ -81,16 +81,11 @@ class Booking < ApplicationRecord
 
   def the_booking_time_cannot_coincide_with_another_booking_time
     @football_pitch = FootballPitch.find_by id: football_pitch_id
-    if @football_pitch
-      @football_pitch.time_booked_booking(date_booking).map do |time|
-        if time_booking_include_time?(time) || time_booking_coincide_time?(time)
-          errors.add(:end_time, I18n.t("errors.messages.coincide_time"))
-          break
-        end
+    @football_pitch.time_booked_booking(date_booking).map do |time|
+      if time_booking_include_time?(time) || time_booking_coincide_time?(time)
+        errors.add(:end_time, I18n.t("errors.messages.coincide_time"))
+        break
       end
-    else
-      errors.add(:football_pitch_id,
-                 I18n.t("errors.messages.football_pitch_not_found"))
     end
   end
 end
