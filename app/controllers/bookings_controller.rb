@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
   end
 
   def update_status
-    if params[:status] == :accepted
+    if params[:status].to_sym == :accepted
       @booking.accepted!
     else
       @booking.unaccepted!
@@ -37,7 +37,7 @@ class BookingsController < ApplicationController
   end
 
   def cancel
-    if @booking.canceled!
+    if !@booking.accepted? && !@booking.unaccepted? && @booking.canceled!
       respond_to do |format|
         format.js{render "update_status"}
       end

@@ -39,6 +39,25 @@ module API
           result = @football_pitch.time_booked_booking_format params[:date_booking]
           present result.as_json
         end
+
+        desc "Create a new booking"
+        params do
+          requires :booking, type: Hash do
+            requires :name
+            requires :phone_number
+            requires :date_booking
+            requires :start_time
+            requires :end_time
+            requires :total_cost
+            requires :football_pitch_id
+          end
+        end
+        post ":id/bookings" do
+          authenticate_user!
+          load_football_pitch
+          booking = @current_user.bookings.create! permitted_params[:booking]
+          present booking, with: API::Entities::Booking
+        end
       end
     end
   end
