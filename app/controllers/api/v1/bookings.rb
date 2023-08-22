@@ -3,6 +3,7 @@ module API
     class Bookings < Grape::API
       include API::V1::Defaults
       include API::V1::Helpers::PaginationHelper
+      include API::V1::Helpers::FormatHelper
       helpers do
         def load_booking
           @booking = Booking.find_by id: params[:id]
